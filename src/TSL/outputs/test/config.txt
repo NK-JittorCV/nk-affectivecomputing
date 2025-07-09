@@ -1,0 +1,22 @@
+Configurtaions:
+- act_thresh_agnostic: [0.5   0.525 0.55  0.575 0.6   0.625 0.65  0.675 0.7  ]
+- act_thresh_cas: [0.    0.025 0.05  0.075 0.1   0.125 0.15  0.175 0.2   0.225]
+- batch_size: 16
+- class_thresh: 0.5
+- data_path: ./dataset/VideoSenti
+- feature_fps: 25
+- gt_path: ./dataset/VideoSenti/gt.json
+- lambdas: [2, 1, 0.5, 1]
+- len_feature: 1024
+- log_path: ./logs/test
+- lr_str: [0.00001]*2000
+- modal: all
+- model_file: ./models/train/model_seed_123.pth
+- model_path: ./models/test
+- num_classes: 2
+- num_iters: 2000
+- num_workers: 8
+- output_path: ./outputs/test
+- r_act: 8
+- scale: 24
+- seed: 123
