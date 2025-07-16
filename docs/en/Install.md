@@ -1,0 +1,19 @@
+## Dependencies
+
+#### Recommended Environment
+
+* Python 3.8.0
+* jittor 1.3.9.14
+* CUDA 11.3
+
+## Requirements
+* jittor==1.3.9.14
+* numpy==1.22.0
+* pandas==2.0.3
+* Pillow==10.0.0
+* protobuf==4.24.1
+* scikit-learn==1.3.0
+* scipy==1.10.1
+* tokenizers==0.13.3
+* tqdm==4.66.1
+* transformers==4.31.0
