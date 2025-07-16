@@ -36,6 +36,8 @@
 
 JACK (Jittor-based affective computing model training and deployment framework) is an official framework provided by Nankai University CV group for training and deploying affective computing methods based on Jittor, a Chinese high-performance deep learning framework. It currently support cutting-edge video emotion analysis methods and gait video emotion analysis method. Built on the Jittor framework, the deployment speed of affective computing methods can be improved by 1.1 to 1.6 times compared to PyTorch, supporting downstream applications such as tourist emotion detection, dialogue analysis, and public opinion monitoring.
 
+The high-performance deep learning framework can seamlessly integrate with the mainstream PyTorch framework. Taking the [`TSL-Net`](https://zzcheng.top/assets/pdf/2022_ACMMM_TSL300.pdf) network architecture as an example, when adapting to JACK, only about 10 modifications are required in the model code to complete the conversion, significantly reducing migration costs. Additionally, we provide detailed conversion experiences and guidance in [`Torch to Jittor FAQ.md`](./docs/en/Torch-to-Jittor-FAQ.md) to help developers get started quickly. We warmly invite more researchers to join us in advancing the localization of affective computing! Let’s work together to build a stronger domestic AI ecosystem!
+
 
 The project now support the following cutting-edge methods in the field of affective computing based on the Jittor deep learning framework:
 
