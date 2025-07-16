@@ -21,24 +21,25 @@ main \
 --audio_n_segments 16 \
 --audio_time 100
 ```
-### Parameter Description
-dataset: is the name of the dataset to be used. Please refer to docs/cn/dataset preparation.md for relevant instructions. \
-resnet101_pretrained: pre-trained image model weight path (such as ResNet-101); used for video frame feature extraction.\
-result_path: inference or training result save path.\
-video_path: video frame sequence or video file path.\
-audio_path: corresponding video and audio file (such as .mp3) path \
-annotation_path: annotation file path, annotation file for training or testing and corresponding sentiment classification.\
-batch_size: batch size: the number of samples fed into the model each time.\
-n_epochs: total number of training rounds.\
-sample_size: input size (width and height) of video frame image.\
-fps: video frame rate.\
-snippet_duration: the number of frames per clip.\
-audio_embed_size: audio feature dimension size.\
-audio_n_segments: divide the entire audio into 16 segments, extract an embedding for each segment; corresponding frame alignment.\
-audio_time: The duration of each audio sample.
+### Arguments
+- dataset: is the name of the dataset to be used. Please refer to docs/cn/dataset preparation.md for relevant instructions.
+- resnet101_pretrained: pre-trained image model weight path (such as ResNet-101); used for video frame feature extraction.
+- result_path: inference or training result save path.
+video_path: video frame sequence or video file path.
+audio_path: corresponding video and audio file (such as .mp3) path.
+- annotation_path: annotation file path, annotation file for training or testing and corresponding sentiment classification.
+- batch_size: batch size: the number of samples fed into the model each time.
+- n_epochs: total number of training rounds.
+sample_size: input size (width and height) of video frame image.
+- fps: video frame rate.
+- snippet_duration: the number of frames per clip.
+- audio_embed_size: audio feature dimension size.
+- audio_n_segments: divide the entire audio into 16 segments, extract an embedding for each segment; corresponding frame alignment.
+- audio_time: The duration of each audio sample.
 
 
-At least the first two parameters are required, where CTEN represents the method and main represents the train. The following parameters are optional and can be modified based on actual conditions.
+The first two parameters are mandatory: CTEN specifies the method, and main indicates the training mode. All subsequent parameters are optional and can be adjusted according to actual requirements or conditions.
+
 
 ## VAANet
 
@@ -59,20 +60,21 @@ test \
 --snippet_duration 16 
 ```
 
-### Parameter Description
-dataset: is the name of the dataset to be used. Please refer to docs/cn/dataset preparation.md for relevant instructions. \
-resnet101_pretrained: pre-trained image model weight path (such as ResNet-101); used for video frame feature extraction.\
-result_path: inference or training result save path.\
-video_path: video frame sequence or video file path.\
-audio_path: corresponding video and audio file (such as .mp3) path \
-annotation_path: annotation file path, annotation file for training or testing and corresponding sentiment classification.\
-batch_size: batch size: the number of samples fed into the model each time.\
-n_epochs: total number of training rounds.\
-sample_size: input size (width and height) of video frame image.\
-fps: video frame rate.\
-snippet_duration: the number of frames per clip.\
+### Arguments
+- dataset: is the name of the dataset to be used. Please refer to docs/cn/dataset preparation.md for relevant instructions.
+- resnet101_pretrained: pre-trained image model weight path (such as ResNet-101); used for video frame feature extraction.
+- result_path: inference or training result save path.
+- video_path: video frame sequence or video file path.
+- audio_path: corresponding video and audio file (such as .mp3) path.
+- annotation_path: annotation file path, annotation file for training or testing and corresponding sentiment classification.
+- batch_size: batch size: the number of samples fed into the model each time.
+- n_epochs: total number of training rounds.
+- sample_size: input size (width and height) of video frame image.
+- fps: video frame rate.
+- snippet_duration: the number of frames per clip.
 
-At least the first two parameters are required, where VAANet represents the method and main represents the train. The following parameters are optional and can be modified based on actual conditions.
+The first two parameters are mandatory: VAANet specifies the method, and main indicates the training mode. The remaining parameters are optional and can be adjusted based on actual conditions.
+
 
 ## TSL-Net
 ## Gait

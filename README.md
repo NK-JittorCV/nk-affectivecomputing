@@ -86,7 +86,26 @@ For more optional dependencies, you can refer to [here](./docs/en/env.md).
 ## ✨ Usage
 Here is a minimal example of training and deployment using JACK.
 
-- If you want to use other models or datasets (including multimodal models and datasets), you only need to modify `--model` to specify the corresponding model's name, and modify `--dataset` to specify the corresponding dataset's path.
+Training
+```
+bash script/run.sh 
+TSL \
+main
+```
+
+Testing
+```
+bash script/run.sh 
+TSL \
+test
+```
+
+- If you want to use other affective computing methods, you only need to modify the first argument to specify the corresponding model's name, and modify the second argument to specify the corresponding function such as train or test.
+
+
+### ✨ Advanced Usage with Customized Arguments
+
+Before further exploration, it is recommended to read our documentation in advance to gain a better understanding of the features supported by this project.
 
 |   Useful Links |
 | ------ |
@@ -95,8 +114,6 @@ Here is a minimal example of training and deployment using JACK.
 |   [Test](./docs/en/test.md) |
 |   [Datasets](./docs/en/dataset.md)   |
 |   [Torch2Jittor FAQ](./docs/en/FAQ.md)   |
-
-### ✨ Usage Example
 
 Taking [CTEN](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly_Supervised_Video_Emotion_Detection_and_Prediction_via_Cross-Modal_Temporal_CVPR_2023_paper.pdf) as an example, JACK provides a solution from training to deployment.
 
@@ -139,6 +156,23 @@ test \
 ⚠️ Note: If random data augmentation was used during training, the predictions may vary slightly each time the script is run. For more information, see the  [FAQ](./docs/en/FAQ.md).
 
 If your goal is only to obtain the emotion classification results for each video segment in the dataset, open the [test.py](./src/CTEN/test.py#l80) file and modify line 80, replacing the placeholder string with the path to your trained weight file. Then, execute the script from the command line to generate the classification results.
+
+#### Arguments from CTEN:
+
+- dataset: is the name of the dataset to be used. Please refer to docs/cn/dataset preparation.md for relevant instructions.
+- resnet101_pretrained: pre-trained image model weight path (such as ResNet-101); used for video frame feature extraction.
+- result_path: inference or training result save path.
+video_path: video frame sequence or video file path.
+audio_path: corresponding video and audio file (such as .mp3) path.
+- annotation_path: annotation file path, annotation file for training or testing and corresponding sentiment classification.
+- batch_size: batch size: the number of samples fed into the model each time.
+- n_epochs: total number of training rounds.
+- sample_size: input size (width and height) of video frame image.
+- fps: video frame rate.
+- snippet_duration: the number of frames per clip.
+- audio_embed_size: audio feature dimension size.
+- audio_n_segments: divide the entire audio into 16 segments, extract an embedding for each segment; corresponding frame alignment.
+- audio_time: The duration of each audio sample.
 
 ## 🏛 License
 

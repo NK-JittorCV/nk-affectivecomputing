@@ -28,7 +28,7 @@
   - [🎉 新闻](#-新闻)
   - [🛠️ 安装](#️-安装)
   - [✨ 使用](#-使用)
-    - [✨ 使用实例](#-使用实例)
+    - [✨ 深入使用JACK并定制化参数](#-深入使用jack并定制化参数)
       - [训练](#训练)
       - [测试](#测试)
   - [🏛 License](#-license)
@@ -99,7 +99,25 @@ pip install -r requirements.txt
 ## ✨ 使用
 以下是使用 JACK 进行训练和部署的简要示例：
 
-- 如果您希望使用其他模型或数据集（包括多模态模型和数据集），只需修改 `--model` 来指定对应模型的名字，并修改 `--dataset` 来指定对应数据集的路径。
+训练
+```
+bash script/run.sh 
+TSL \
+main
+```
+
+测试
+```
+bash script/run.sh 
+TSL \
+test
+```
+
+- 如果您希望使用其他情感计算模型，只需修改第一个参数来指定对应模型的名字，并修改第二个参数来指定对应功能（例如训练/测试）。
+
+### ✨ 深入使用JACK并定制化参数
+
+在进一步探索使用前，建议提前阅读我们的文档以便您对本项目支持的功能有更好的理解。
 
 |  **实用链接** |
 | ------ |
@@ -109,7 +127,6 @@ pip install -r requirements.txt
 |   [数据集](./docs/cn/数据集准备.md)   |
 |   [Torch转Jittor常见问题](./docs/cn/Torch转Jittor常见问题.md)   |
 
-### ✨ 使用实例
 以 [CTEN](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly_Supervised_Video_Emotion_Detection_and_Prediction_via_Cross-Modal_Temporal_CVPR_2023_paper.pdf) 为例，JACK 提供了从训练到部署的完整解决方案。
 
 ---
