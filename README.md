@@ -121,6 +121,9 @@ main \
 In the command line, please replace the placeholders for video path, audio path, pretrained model path, and result output path with your actual local paths. Once configured, you can train the model on the VE8 dataset and obtain the final trained weight file. For detailed explanations of each parameter, refer to the [Train](./docs/en/train.md)  documentation.Additionally, when running this script, validation results will also be printed alongside the classification outputs.
 
 If you only need to obtain the emotion classification results for each video segment in the dataset, go to the /src/CTEN/test.py file and modify line 80 by replacing the string with the path to your trained weight file. Execute the script below in the command line to get video emotion classification results.
+
+### Command Line
+
 ```
 bash script/run.sh 
 CTEN \
