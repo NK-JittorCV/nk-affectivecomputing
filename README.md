@@ -96,9 +96,33 @@ Here is a minimal example of training and deployment using JACK.
 |   [Datasets](./docs/en/dataset.md)   |
 |   [Torch2Jittor FAQ](./docs/en/FAQ.md)   |
 
+Next, we will take the CTEN method as an example.
 
+###Command Line
+```
+bash script/run.sh 
+CTEN \
+main \
+--dataset ve8 \
+--resnet101_pretrained your_path \
+--video_path your_path your_path \
+--annotation_path src/CTEN/data/ve8_04.json \
+--audio_path your_path \
+--result_path your_path \
+--batch_size 4 \
+--n_epochs 100 \
+--sample_size 112 \
+--fps 30 \
+--snippet_duration 16 \
+--audio_embed_size 2048 \
+--audio_n_segments 16 \
+--audio_time 100
+```
+In the command line, please replace the placeholders for video path, audio path, pretrained model path, and result output path with your actual local paths. Once configured, you can train the model on the VE8 dataset and obtain the final trained weight file. For detailed explanations of each parameter, refer to the [Train](./docs/en/train.md)  documentation.Additionally, when running this script, validation results will also be printed alongside the classification outputs.
 
+If you only need to obtain the emotion classification results for each video segment in the dataset, go to the /src/CTEN/test.py file and modify line 80 by replacing the string with the path to your trained weight file. Running this script will generate classification results.
 
+⚠️ Note: If random augmentation was applied during training, the predictions may vary slightly each time the script is executed. For more details, refer to the [FAQ](./docs/en/FAQ.md) .
 
 ## 🏛 License
 
