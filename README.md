@@ -118,9 +118,11 @@ main \
 --audio_n_segments 16 \
 --audio_time 100
 ```
-Before running the script, please replace the placeholders for video path, audio path, pretrained model path, and result output path with your actual local paths. Once configured, you can train the model on the VE8 dataset and obtain the final trained weight file. For detailed explanations of each parameter, refer to the [Train](./docs/en/train.md)  documentation.Additionally, when running this script, validation results will also be printed alongside the classification outputs.
 
-If you only need to obtain the emotion classification results for each video segment in the dataset, go to the /src/CTEN/test.py file and modify line 80 by replacing the string with the path to your trained weight file. Execute the script below in the command line to get video emotion classification results.
+Before running the script, make sure to replace the placeholders for the video path, audio path, pretrained model path, and result output path with your actual local paths. Once properly configured, you can train the model on the VE8 dataset to obtain the final trained weight file. For a detailed explanation of each parameter, please refer to the  [Train](./docs/en/train.md)   documentation.During training or evaluation, validation results will also be printed alongside the emotion classification outputs.
+
+
+If your goal is only to obtain the emotion classification results for each video segment in the dataset, open the /src/CTEN/test.py file and modify line 80, replacing the placeholder string with the path to your trained weight file. Then, execute the script from the command line to generate the classification results.
 
 ### Quick Testing
 
@@ -133,8 +135,7 @@ test \
 --audio_path your_path \
 --result_path your_path
 ```
-
-⚠️ Note: If random augmentation was applied during training, the predictions may vary slightly each time the script is executed. For more details, refer to the [FAQ](./docs/en/FAQ.md) .
+⚠️ Note: If random data augmentation was used during training, the predictions may vary slightly each time the script is run. For more information, see the  [FAQ](./docs/en/FAQ.md) .
 
 ## 🏛 License
 
