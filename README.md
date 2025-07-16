@@ -40,11 +40,11 @@ JACK (Jittor-based affective computing model training and deployment framework) 
 The project now support four works in the field of affective computing based on the Jittor deep learning framework:
 
 | **Work**| **Train** | **Test** |
-|-----------------------------------------------------------------------------------------------------------|-----------|----------|
-| [[CTEN]](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly_Supervised_Video_Emotion_Detection_and_Prediction_via_Cross-Modal_Temporal_CVPR_2023_paper.pdf) | [[Train]]() | [[Test]]() |
-| [[TSL_Net]](https://github.com/nku-zhichengzhang/TSL300/blob/main/assests/acm22_zzc_videosenti_official.pdf) | [[Train]]() | [[Test]]() |
-| [[VAANet]](https://arxiv.org/abs/2003.00832)                                                              | [[Train]]() | [[Test]]() |
-| [[Gait]](https://ieeexplore.ieee.org/document/10433680)                                                   | [[Train]]() | [[Test]]() |
+|---------|-----------|----------|
+| [[CVPR'23] CTEN](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly_Supervised_Video_Emotion_Detection_and_Prediction_via_Cross-Modal_Temporal_CVPR_2023_paper.pdf) | [[train script]](./docs/cn/训练.md#-CTEN) | [[test script]](./docs/cn/测试.md#-CTEN) |
+| [[MM'22] TSL-Net](https://github.com/nku-zhichengzhang/TSL300/blob/main/assests/acm22_zzc_videosenti_official.pdf) | [[train script]](./docs/cn/训练.md#-TSL-Net) | [[test script]](./docs/cn/测试.md#-TSL-Net) |
+| [[AAAI'20] VAANet](https://arxiv.org/abs/2003.00832)                                                              | [[train script]](./docs/cn/训练.md#-TSL-Net) | [[test script]](./docs/cn/测试.md#-TSL-Net) |
+| [[TAC'24] Gait](https://ieeexplore.ieee.org/document/10433680)                                                   | [[train script]](./docs/cn/训练.md#-Gait) | [[test script]](./docs/cn/测试.md#-Gait) |
 
 
 Performance comparison between the Jittor high-performance deep learning framework and the PyTorch framework in the field of affective computing:

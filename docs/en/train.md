@@ -7,6 +7,7 @@ bash script/run.sh CTEN main --dataset ve8 --resnet101_pretrained your_path --vi
 
 ```
 At least the first two parameters are required, where CTEN represents the method and main represents the train. The following parameters are optional and can be modified based on actual conditions.
+
 ## VAANet
 
 ```
@@ -14,3 +15,6 @@ bash script/run.sh VAANet main --dataset ve8 --resnet101_pretrained your_path --
 
 ```
 At least the first two parameters are required, where VAANet represents the method and main represents the train. The following parameters are optional and can be modified based on actual conditions.
+
+## TSL-Net
+## Gait

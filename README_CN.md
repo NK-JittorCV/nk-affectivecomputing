@@ -45,10 +45,10 @@ JACK（基于Jittor的情感计算模型训练与部署框架）是由南开大�
 
 | **工作**| **训练** | **测试** |
 |-----------------------------------------------------------------------------------------------------------|-----------|----------|
-| [[CTEN]](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly_Supervised_Video_Emotion_Detection_and_Prediction_via_Cross-Modal_Temporal_CVPR_2023_paper.pdf) | [[Train]]() | [[Test]]() |
-| [[TSL_Net]](https://github.com/nku-zhichengzhang/TSL300/blob/main/assests/acm22_zzc_videosenti_official.pdf) | [[Train]]() | [[Test]]() |
-| [[VAANet]](https://arxiv.org/abs/2003.00832)                                                              | [[Train]]() | [[Test]]() |
-| [[Gait]](https://ieeexplore.ieee.org/document/10433680)                                                   | [[Train]]() | [[Test]]() |
+| [[CVPR'23] CTEN](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly_Supervised_Video_Emotion_Detection_and_Prediction_via_Cross-Modal_Temporal_CVPR_2023_paper.pdf) | [[训练脚本]](./docs/en/训练.md#-CTEN) | [[测试脚本]](./docs/en/测试.md#-CTEN) |
+| [[MM'22] TSL-Net](https://github.com/nku-zhichengzhang/TSL300/blob/main/assests/acm22_zzc_videosenti_official.pdf) | [[训练脚本]](./docs/en/训练.md#-TSL-Net) | [[测试脚本]](./docs/en/测试.md#-TSL-Net) |
+| [[AAAI'20] VAANet](https://arxiv.org/abs/2003.00832)                                                              | [[训练脚本]](./docs/en/训练.md#-TSL-Net) | [[测试脚本]](./docs/en/测试.md#-TSL-Net) |
+| [[TAC'24] Gait](https://ieeexplore.ieee.org/document/10433680)                                                   | [[训练脚本]](./docs/en/训练.md#-Gait) | [[测试脚本]](./docs/en/测试.md#-Gait) |
 
 
 在情感计算领域，Jittor高性能深度学习框架与PyTorch框架的性能对比：
