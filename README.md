@@ -72,11 +72,11 @@ pip install -r requirements.txt
 
 Running Environment:
 
-|              | Range        | Recommended | Notes                                     |
+|  Dependence  | Range        | Recommended | Notes                                     |
 | ------------ |--------------| ----------- | ----------------------------------------- |
-| python       | >=3.8        | 3.8        |                                           |
-| cuda         |              | cuda11.3   | No need to install if using CPU, NPU, MPS |
-| jittor       |              | 1.3.9.14   |                                           |
+| python | >=3.8 | 3.8        | |
+| cuda   |              | cuda11.3   | No need to install if using CPU, NPU, MPS |
+| jittor |              | 1.3.9.14   |                                           |
 | transformers | >=4.30       | 4.31.0     |                                           |
 
 
@@ -96,9 +96,12 @@ Here is a minimal example of training and deployment using JACK.
 |   [Datasets](./docs/en/dataset.md)   |
 |   [Torch2Jittor FAQ](./docs/en/FAQ.md)   |
 
-Next, we will take the CTEN method as an example.
+### ✨ Usage Example
 
-### Quick Training
+Taking [CTEN](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly_Supervised_Video_Emotion_Detection_and_Prediction_via_Cross-Modal_Temporal_CVPR_2023_paper.pdf) as an example, JACK provides a solution from training to deployment.
+
+
+#### Training
 ```
 bash script/run.sh 
 CTEN \
@@ -119,13 +122,11 @@ main \
 --audio_time 100
 ```
 
-Before running the script, make sure to replace the placeholders for the video path, audio path, pretrained model path, and result output path with your actual local paths. Once properly configured, you can train the model on the VE8 dataset to obtain the final trained weight file. For a detailed explanation of each parameter, please refer to the  [Train](./docs/en/train.md)   documentation.During training or evaluation, validation results will also be printed alongside the emotion classification outputs.
+Before running the script, make sure to replace the placeholders for the video path, audio path, pretrained model path, and result output path with your actual local paths. Once properly configured, you can train the model on the VE8 dataset to obtain the final trained weight file. For a detailed explanation of each parameter, please refer to the [Train](./docs/en/train.md)   documentation.During training or evaluation, validation results will also be printed alongside the emotion classification outputs.
 
 
-If your goal is only to obtain the emotion classification results for each video segment in the dataset, open the /src/CTEN/test.py file and modify line 80, replacing the placeholder string with the path to your trained weight file. Then, execute the script from the command line to generate the classification results.
 
-### Quick Testing
-
+#### Testing
 ```
 bash script/run.sh 
 CTEN \
@@ -135,7 +136,9 @@ test \
 --audio_path your_path \
 --result_path your_path
 ```
-⚠️ Note: If random data augmentation was used during training, the predictions may vary slightly each time the script is run. For more information, see the  [FAQ](./docs/en/FAQ.md) .
+⚠️ Note: If random data augmentation was used during training, the predictions may vary slightly each time the script is run. For more information, see the  [FAQ](./docs/en/FAQ.md).
+
+If your goal is only to obtain the emotion classification results for each video segment in the dataset, open the [test.py](./src/CTEN/test.py#l80) file and modify line 80, replacing the placeholder string with the path to your trained weight file. Then, execute the script from the command line to generate the classification results.
 
 ## 🏛 License
 
