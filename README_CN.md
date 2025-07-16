@@ -86,7 +86,7 @@ pip install -r requirements.txt
 | jittor       |              | 1.3.9.14   |                                           |
 | transformers | >=4.30       | 4.31.0     |                                           |
 
-有关更多可选依赖项，请参考 [这里](./docs/en/env.md)。
+有关更多可选依赖项，请参考 [这里](./docs/cn/环境配置.md)。
 
 
 
@@ -98,11 +98,11 @@ pip install -r requirements.txt
 
 |  实用链接 |
 | ------ |
-|   [🔥支持的方法](./docs/en/papers.md)   |
-|   [训练](./docs/en/train.md)   |
-|   [测试](./docs/en/test.md) |
-|   [数据集](./docs/en/dataset.md)   |
-|   [Torch转Jittor常见问题](./docs/en/FAQ.md)   |
+|   [🔥支持的方法](./docs/cn/支持工作.md)   |
+|   [训练](./docs/cn/训练.md)   |
+|   [测试](./docs/cn/测试.md) |
+|   [数据集](./docs/cn/数据集准备.md)   |
+|   [Torch转Jittor常见问题](./docs/cn/Torch转Jittor常见问题.md)   |
 
 
 
