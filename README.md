@@ -131,7 +131,7 @@ test \
 --dataset ve8 \
 --video_path your_path your_path \
 --audio_path your_path \
---result_path your_path \
+--result_path your_path
 ```
 
 ⚠️ Note: If random augmentation was applied during training, the predictions may vary slightly each time the script is executed. For more details, refer to the [FAQ](./docs/en/FAQ.md) .
