@@ -76,8 +76,8 @@ Running Environment:
 | ------------ |--------------| ----------- | ----------------------------------------- |
 | python       | >=3.8        | 3.8        |                                           |
 | cuda         |              | cuda11.3   | No need to install if using CPU, NPU, MPS |
-| jittor       |        |  1.3.9.14     |                                           |
-| transformers | >=4.30       | 4.31.0      |                                           |
+| jittor       |              | 1.3.9.14   |                                           |
+| transformers | >=4.30       | 4.31.0     |                                           |
 
 
 For more optional dependencies, you can refer to [here](./docs/en/env.md).
