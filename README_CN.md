@@ -53,52 +53,57 @@ JACK（基于Jittor的情感计算模型训练与部署框架）是由南开大�
 
 在情感计算领域，Jittor高性能深度学习框架与PyTorch框架的性能对比：
 
-| **工作**| **训练** | **测试** |
-|-----------------------------------------------------------------------------------------------------------|-----------|----------|
-| [[CTEN]](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly_Supervised_Video_Emotion_Detection_and_Prediction_via_Cross-Modal_Temporal_CVPR_2023_paper.pdf) | [[Train]]() | [[Test]]() |
-| [[TSL_Net]](https://github.com/nku-zhichengzhang/TSL300/blob/main/assests/acm22_zzc_videosenti_official.pdf) | [[Train]]() | [[Test]]() |
-| [[VAANet]](https://arxiv.org/abs/2003.00832)                                                              | [[Train]]() | [[Test]]() |
-| [[Gait]](https://ieeexplore.ieee.org/document/10433680)                                                   | [[Train]]() | [[Test]]() |
+
+| TSL-Net指标                        | PyTorch  | Jittor  |
+|-----------------------------|----------|---------|
+| 平均前向时间（训练）         | 0.324s   | 0.068s  |
+| 平均内存使用量（训练）       | 11319MB  | 16132MB |
+| 单次迭代时间（训练）         | 1.162s   | 0.981s  |
+| 平均_mAP[0.1:0.3]（测试）    | 0.1985   | 0.1949  |
+| 平均_pAP[0.1:0.3]（测试）    | 0.2106   | 0.2095  |
+| 平均_nAP[0.1:0.3]（测试）    | 0.1865   | 0.1803  |
+| F2@AVG（测试）               | 0.3369   | 0.3577  |
 
 
 
 ## 🎉 新闻
-- 🎁 2025.07.16: Project initialized. This project supports four video emotion analysis tasks, including [CTEN](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly_Supervised_Video_Emotion_Detection_and_Prediction_via_Cross-Modal_Temporal_CVPR_2023_paper.pdf), [TSL_Net](https://github.com/nku-zhichengzhang/TSL300/blob/main/assests/acm22_zzc_videosenti_official.pdf), [VAANet](https://arxiv.org/abs/2003.00832), and [Gait](https://ieeexplore.ieee.org/document/10433680). Training and testing scripts are provided for all methods.
+- 🎁 2025.07.16: 项目初始化。本项目支持四项视频情感分析任务，包括 [CTEN](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly_Supervised_Video_Emotion_Detection_and_Prediction_via_Cross-Modal_Temporal_CVPR_2023_paper.pdf), [TSL_Net](https://github.com/nku-zhichengzhang/TSL300/blob/main/assests/acm22_zzc_videosenti_official.pdf), [VAANet](https://arxiv.org/abs/2003.00832), 和 [Gait](https://ieeexplore.ieee.org/document/10433680)。所有方法均提供了训练和测试脚本。
 
 
 ## 🛠️ 安装
-To install using pip:
+使用 pip 安装：
+
 ```shell
 pip install -r requirements.txt
 ```
 
-Running Environment:
+依赖的环境:
 
-|              | Range        | Recommended | Notes                                     |
+| 包 | 范围        | 推荐 | 注意                                     |
 | ------------ |--------------| ----------- | ----------------------------------------- |
 | python       | >=3.8        | 3.8        |                                           |
-| cuda         |              | cuda11.3   | No need to install if using CPU, NPU, MPS |
+| cuda         |              | cuda11.3   | 如果使用 CPU、NPU 或 MPS，则无需安装
+ |
 | jittor       |        |  1.3.9.14     |                                           |
 | transformers | >=4.30       | 4.31.0      |                                           |
 
-
-For more optional dependencies, you can refer to [here](./docs/en/env.md).
+有关更多可选依赖项，请参考 [这里](./docs/en/env.md)。
 
 
 
 
 ## ✨ 使用
-Here is a minimal example of training and deployment using JACK.
+以下是使用 JACK 进行训练和部署的简要示例：
 
-- If you want to use other models or datasets (including multimodal models and datasets), you only need to modify `--model` to specify the corresponding model's ID or path, and modify `--dataset` to specify the corresponding dataset's ID or path.
+- 如果您希望使用其他模型或数据集（包括多模态模型和数据集），只需修改 `--model` 来指定对应模型的名字，并修改 `--dataset` 来指定对应数据集的路径。
 
-|   Useful Links |
+|  实用链接 |
 | ------ |
-|   [🔥Supported Methods](./docs/en/papers.md)   |
-|   [Train](./docs/en/train.md)   |
-|   [Test](./docs/en/test.md) |
-|   [Datasets](./docs/en/dataset.md)   |
-|   [Torch2Jittor FAQ](./docs/en/FAQ.md)   |
+|   [🔥支持的方法](./docs/en/papers.md)   |
+|   [训练](./docs/en/train.md)   |
+|   [测试](./docs/en/test.md) |
+|   [数据集](./docs/en/dataset.md)   |
+|   [Torch转Jittor常见问题](./docs/en/FAQ.md)   |
 
 
 
