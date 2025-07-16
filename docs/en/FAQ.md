@@ -46,12 +46,8 @@ def get_spatial_transform(opt, mode):
 
 ### Q2: How to evaluate the consistency and performance between the modified Jittor version and the original Torch version?
 
-Consistency is evaluated using sentiment classification results on the dataset. Performance is compared through three metrics:
-1. Average forward propagation time
-2. Average memory usage
-3. Single training epoch time (excluding data loading)
+To comprehensively evaluate the consistency and performance of the Jittor version compared to the Torch version, two aspects should be considered. For consistency, the outputs of both frameworks under the same input should be compared, either at the level of logits or classification results. When using logits for evaluation, the L2 distance or maximum absolute error can be calculated; when using classification results, the number of mismatched predictions can be counted. Additionally, for comparing the training processes, the trend of the loss curves can be observed to assess differences in optimization behavior.
 
-For specific metrics, please refer to the readme.md document.
 
 ### Q3: After modifying the Jittor version code, many parameters fail to load during execution. What could be the reasons?
 
