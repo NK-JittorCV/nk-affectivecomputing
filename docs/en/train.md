@@ -3,9 +3,7 @@
 ## CTEN
 
 ```
-bash script/run.sh 
-CTEN \
-main \
+bash script/run.sh CTEN main \
 --dataset ve8 \
 --resnet101_pretrained your_path \
 --video_path your_path your_path \
@@ -44,9 +42,7 @@ The first two parameters are mandatory: CTEN specifies the method, and main indi
 ## VAANet
 
 ```
-bash script/run.sh 
-VAANet \
-test \
+bash script/run.sh VAANet test \
 --dataset ve8 \
 --resnet101_pretrained your_path \
 --video_path your_path \

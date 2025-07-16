@@ -31,6 +31,7 @@
     - [✨ 深入使用JACK并定制化参数](#-深入使用jack并定制化参数)
       - [训练](#训练)
       - [测试](#测试)
+      - [CTEN参数说明](#cten参数说明)
   - [🏛 License](#-license)
   - [📎 引用](#-引用)
 
@@ -46,17 +47,17 @@ JACK（基于Jittor的情感计算模型训练与部署框架）是由南开大�
 
 
 
-该项目目前支持基于Jittor深度学习框架的情感计算领域中的四项工作：
+该项已支持基于Jittor深度学习框架的情感计算领域中的最新工作：
 
 | **工作**| **训练** | **测试** |
 |-----------------------------------------------------------------------------------------------------------|-----------|----------|
-| [[CVPR'23] CTEN](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly_Supervised_Video_Emotion_Detection_and_Prediction_via_Cross-Modal_Temporal_CVPR_2023_paper.pdf) | [[训练脚本]](./docs/cn/训练.md#-CTEN) | [[测试脚本]](./docs/cn/测试.md#-CTEN) |
-| [[MM'22] TSL-Net](https://github.com/nku-zhichengzhang/TSL300/blob/main/assests/acm22_zzc_videosenti_official.pdf) | [[训练脚本]](./docs/cn/训练.md#-TSL-Net) | [[测试脚本]](./docs/cn/测试.md#-TSL-Net) |
-| [[AAAI'20] VAANet](https://arxiv.org/abs/2003.00832)                                                              | [[训练脚本]](./docs/cn/训练.md#-TSL-Net) | [[测试脚本]](./docs/cn/测试.md#-TSL-Net) |
-| [[TAC'24] Gait](https://ieeexplore.ieee.org/document/10433680)                                                   | [[训练脚本]](./docs/cn/训练.md#-Gait) | [[测试脚本]](./docs/cn/测试.md#-Gait) |
+| [`[CVPR'23] CTEN`](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly_Supervised_Video_Emotion_Detection_and_Prediction_via_Cross-Modal_Temporal_CVPR_2023_paper.pdf) | [`[训练脚本]`](./docs/cn/训练.md#-CTEN) | [`[测试脚本]`](./docs/cn/测试.md#-CTEN) |
+| [`[MM'22] TSL-Net`](https://zzcheng.top/assets/pdf/2022_ACMMM_TSL300.pdf) | [`[训练脚本]`](./docs/cn/训练.md#-TSL-Net) | [`[测试脚本]`](./docs/cn/测试.md#-TSL-Net) |
+| [`[AAAI'20] VAANet`](https://arxiv.org/abs/2003.00832) | [`[训练脚本]`](./docs/cn/训练.md#-TSL-Net) | [`[测试脚本]`](./docs/cn/测试.md#-TSL-Net) |
+| [`[TAC'24] Gait`](https://ieeexplore.ieee.org/document/10433680) | [`[训练脚本]`](./docs/cn/训练.md#-Gait) | [`[测试脚本]`](./docs/cn/测试.md#-Gait) |
 
 
-在情感计算领域，Jittor高性能深度学习框架与PyTorch框架的性能对比：
+在情感计算方法[`TSL-Net`](https://zzcheng.top/assets/pdf/2022_ACMMM_TSL300.pdf)，Jittor高性能深度学习框架与PyTorch框架的性能对比：
 
 
 | TSL-Net指标                        | PyTorch  | Jittor  |
@@ -72,7 +73,7 @@ JACK（基于Jittor的情感计算模型训练与部署框架）是由南开大�
 
 
 ## 🎉 新闻
-- 🎁 2025.07.16: 项目初始化。本项目支持四项视频情感分析任务，包括 [CTEN](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly_Supervised_Video_Emotion_Detection_and_Prediction_via_Cross-Modal_Temporal_CVPR_2023_paper.pdf), [TSL_Net](https://github.com/nku-zhichengzhang/TSL300/blob/main/assests/acm22_zzc_videosenti_official.pdf), [VAANet](https://arxiv.org/abs/2003.00832), 和 [Gait](https://ieeexplore.ieee.org/document/10433680)。所有方法均提供了训练和测试脚本。
+- 🎁 2025.07.16: 项目初始化。本项目支持四项视频情感分析任务，包括 [CTEN](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly_Supervised_Video_Emotion_Detection_and_Prediction_via_Cross-Modal_Temporal_CVPR_2023_paper.pdf), [TSL_Net](https://zzcheng.top/assets/pdf/2022_ACMMM_TSL300.pdf), [VAANet](https://arxiv.org/abs/2003.00832), 和 [Gait](https://ieeexplore.ieee.org/document/10433680)。所有方法均提供了训练和测试脚本。
 
 
 ## 🛠️ 安装
@@ -91,7 +92,7 @@ pip install -r requirements.txt
 | jittor       |              | 1.3.9.14   |                                           |
 | transformers | >=4.30       | 4.31.0     |                                           |
 
-有关更多可选依赖项，请参考 [这里](./docs/cn/环境配置.md)。
+有关更多可选依赖项，请参考 [`环境配置.md`](./docs/cn/环境配置.md)。
 
 
 
@@ -101,16 +102,12 @@ pip install -r requirements.txt
 
 训练
 ```
-bash script/run.sh 
-TSL \
-main
+bash script/run.sh CTEN main
 ```
 
 测试
 ```
-bash script/run.sh 
-TSL \
-test
+bash script/run.sh CTEN test
 ```
 
 - 如果您希望使用其他情感计算模型，只需修改第一个参数来指定对应模型的名字，并修改第二个参数来指定对应功能（例如训练/测试）。
@@ -133,9 +130,7 @@ test
 
 #### 训练
 ```
-bash script/run.sh 
-CTEN \
-main \
+bash script/run.sh CTEN main \
 --dataset ve8 \
 --resnet101_pretrained your_path \
 --video_path your_path your_path \
@@ -152,23 +147,37 @@ main \
 --audio_time 100
 ```
 
-在运行脚本之前，请确保将视频路径、音频路径、预训练模型路径以及结果输出路径中的占位符替换为实际的本地路径。配置完成后，您可以在 VE8 数据集上训练模型以获取最终的训练权重文件。有关每个参数的详细说明，请参考 [Train](./docs/en/train.md) 文档。在训练或评估期间，验证结果将与情感分类输出一起打印。
+在运行脚本之前，请确保将视频路径、音频路径、预训练模型路径以及结果输出路径中的占位符替换为实际的本地路径。配置完成后，您可以在 VE8 数据集上训练模型以获取最终的训练权重文件。有关每个参数的详细说明，请参考 [`Train`](./docs/en/train.md) 文档。
 
 ---
 
 #### 测试
 ```
-bash script/run.sh 
-CTEN \
-test \
+bash script/run.sh CTEN test \
 --dataset ve8 \
 --video_path your_path your_path \
 --audio_path your_path \
 --result_path your_path
 ```
-⚠️ 注意：如果在训练期间使用了随机数据增强，每次运行脚本时，预测结果可能会略有不同。更多信息请参阅 [FAQ](./docs/en/FAQ.md)。
+⚠️ 注意：如果在训练期间使用了随机数据增强，每次运行脚本时，预测结果可能会略有不同。更多信息请参阅 [`常见问题.md`](./docs/cn/Torch转Jittor常见问题.md)。
 
-如果您的目标仅是获取数据集中每个视频片段的情感分类结果，请打开 [test.py](./src/CTEN/test.py#l80) 文件并修改第 80 行，将占位符字符串替换为训练权重文件的路径。然后，从命令行执行脚本以生成分类结果。
+如果您的目标仅是获取数据集中每个视频片段的情感分类结果，请打开 [`test.py`](./src/CTEN/test.py#l80) 文件并修改第 80 行，将占位符字符串替换为训练权重文件的路径。然后，从命令行执行脚本以生成分类结果。
+
+#### CTEN参数说明
+- dataset：是指定使用的数据集名称，可以参考[`数据集.md`](./docs/cn/数据集准备.md)相关说明。
+- resnet101_pretrained：预训练图像模型权重路径（如 ResNet-101）；用于视频帧特征提取。
+- result_path：推理或训练结果保存路径。
+- video_path：视频帧序列或视频文件的路径。
+- audio_path：对应的视频音频文件（如.mp3）所在路径。
+- annotation_path：标注文件路径，标注文件用于训练还是测试以及对应的情感分类。
+- batch_size：批大小：每次送入模型的样本数量。
+- n_epochs：总训练轮数。
+- sample_size：视频帧图像的输入尺寸（宽高）。
+- fps：视频帧率。
+- snippet_duration：每个 clip 的持续帧数。
+- audio_embed_size： 音频特征维度大小。
+- audio_n_segments：将整个音频划分为 16 个段，每段提取一个 embedding；对应帧的对齐。
+- audio_time：每段音频采样的时长。
 
 ## 🏛 License
 

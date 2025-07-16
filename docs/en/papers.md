@@ -61,7 +61,7 @@
 </p>
 
 <font size=7><div align='center'>
-[[📖 Paper](https://github.com/nku-zhichengzhang/TSL300/blob/main/assests/acm22_zzc_videosenti_official.pdf)]
+[[📖 Paper](https://zzcheng.top/assets/pdf/2022_ACMMM_TSL300.pdf)]
 [[🌟 GitHub](https://github.com/nku-zhichengzhang/TSL300)]
 [[📺 Video](https://www.youtube.com/watch?v=znZZMq6YdBg)]
 </div></font>  

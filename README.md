@@ -37,31 +37,31 @@
 JACK (Jittor-based affective computing model training and deployment framework) is an official framework provided by Nankai University CV group for training and deploying affective computing methods based on Jittor, a Chinese high-performance deep learning framework. It currently support cutting-edge video emotion analysis methods and gait video emotion analysis method. Built on the Jittor framework, the deployment speed of affective computing methods can be improved by 1.1 to 1.6 times compared to PyTorch, supporting downstream applications such as tourist emotion detection, dialogue analysis, and public opinion monitoring.
 
 
-The project now support four works in the field of affective computing based on the Jittor deep learning framework:
+The project now support the following cutting-edge methods in the field of affective computing based on the Jittor deep learning framework:
 
 | **Work**| **Train** | **Test** |
 |---------|-----------|----------|
-| [[CVPR'23] CTEN](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly_Supervised_Video_Emotion_Detection_and_Prediction_via_Cross-Modal_Temporal_CVPR_2023_paper.pdf) | [[train script]](./docs/en/train.md#-CTEN) | [[test script]](./docs/en/test.md#-CTEN) |
-| [[MM'22] TSL-Net](https://github.com/nku-zhichengzhang/TSL300/blob/main/assests/acm22_zzc_videosenti_official.pdf) | [[train script]](./docs/en/train.md#-TSL-Net) | [[test script]](./docs/en/test.md#-TSL-Net) |
-| [[AAAI'20] VAANet](https://arxiv.org/abs/2003.00832)                                                              | [[train script]](./docs/en/train.md#-TSL-Net) | [[test script]](./docs/en/test.md#-TSL-Net) |
-| [[TAC'24] Gait](https://ieeexplore.ieee.org/document/10433680)                                                   | [[train script]](./docs/en/train.md#-Gait) | [[test script]](./docs/en/test.md#-Gait) |
+| [`[CVPR'23] CTEN`](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly_Supervised_Video_Emotion_Detection_and_Prediction_via_Cross-Modal_Temporal_CVPR_2023_paper.pdf) | [`[train script]`](./docs/en/train.md#-CTEN) | [`[test script]`](./docs/en/test.md#-CTEN) |
+| [`[MM'22] TSL-Net`](https://zzcheng.top/assets/pdf/2022_ACMMM_TSL300.pdf) | [`[train script]`](./docs/en/train.md#-TSL-Net) | [`[test script]`](./docs/en/test.md#-TSL-Net) |
+| [`[AAAI'20] VAANet`](https://arxiv.org/abs/2003.00832)                                                              | [`[train script]`](./docs/en/train.md#-TSL-Net) | [`[test script]`](./docs/en/test.md#-TSL-Net) |
+| [`[TAC'24] Gait`](https://ieeexplore.ieee.org/document/10433680)                                                   | [`[train script]`](./docs/en/train.md#-Gait) | [`[test script]`](./docs/en/test.md#-Gait) |
 
 
-Performance comparison between the Jittor high-performance deep learning framework and the PyTorch framework in the field of affective computing:
+Performance comparison between the Jittor high-performance deep learning framework and the PyTorch framework for affective computing methods [`TSL-Net`](https://zzcheng.top/assets/pdf/2022_ACMMM_TSL300.pdf):
 
 
-| Metrics computed by TSL-Net                 | PyTorch  | Jittor  |
-|-------------------------|----------|---------|
-| Average Forward Time (train)    | 0.324s   | 0.068s  |
-| Average Memory Usage (train)    | 11319MB  | 16132MB |
-| Single Iteration Time(train)   | 1.162s   | 0.981s  |
-| Average_mAP[0.1:0.3] (test)    | 0.1985   | 0.1949  |
-| Average_pAP[0.1:0.3] (test)    | 0.2106   | 0.2095  |
-| Average_nAP[0.1:0.3] (test)   | 0.1865   | 0.1803  |
-| F2@AVG (test)                  | 0.3369   | 0.3577  |
+| Metrics computed by TSL-Net | PyTorch | Jittor |
+|-----------------------------|---------|--------|
+| Average Forward Time (train)| 0.324s  | 0.068s |
+| Average Memory Usage (train)| 11319MB | 16132MB|
+| Single Iteration Time(train)| 1.162s  | 0.981s |
+| Average_mAP[0.1:0.3] (test) | 0.1985  | 0.1949 |
+| Average_pAP[0.1:0.3] (test) | 0.2106  | 0.2095 |
+| Average_nAP[0.1:0.3] (test) | 0.1865  | 0.1803 |
+| F2@AVG (test)               | 0.3369  | 0.3577 |
 
 ## 🎉 News
-- 🎁 2025.07.16: Project initialized. This project supports four video emotion analysis tasks, including [CTEN](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly_Supervised_Video_Emotion_Detection_and_Prediction_via_Cross-Modal_Temporal_CVPR_2023_paper.pdf), [TSL_Net](https://github.com/nku-zhichengzhang/TSL300/blob/main/assests/acm22_zzc_videosenti_official.pdf), [VAANet](https://arxiv.org/abs/2003.00832), and [Gait](https://ieeexplore.ieee.org/document/10433680). Training and testing scripts are provided for all methods.
+- 🎁 2025.07.16: Project initialized. This project supports four video emotion analysis tasks, including [CTEN](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly_Supervised_Video_Emotion_Detection_and_Prediction_via_Cross-Modal_Temporal_CVPR_2023_paper.pdf), [TSL_Net](https://zzcheng.top/assets/pdf/2022_ACMMM_TSL300.pdf), [VAANet](https://arxiv.org/abs/2003.00832), and [Gait](https://ieeexplore.ieee.org/document/10433680). Training and testing scripts are provided for all methods.
 
 
 ## 🛠️ Installation
@@ -80,7 +80,7 @@ Running Environment:
 | transformers | >=4.30       | 4.31.0     |                                           |
 
 
-For more optional dependencies, you can refer to [here](./docs/en/env.md).
+For more optional dependencies, you can refer to [`env.md`](./docs/en/env.md).
 
 
 ## ✨ Usage
@@ -88,16 +88,12 @@ Here is a minimal example of training and deployment using JACK.
 
 Training
 ```
-bash script/run.sh 
-TSL \
-main
+bash script/run.sh TSL main
 ```
 
 Testing
 ```
-bash script/run.sh 
-TSL \
-test
+bash script/run.sh TSL test
 ```
 
 - If you want to use other affective computing methods, you only need to modify the first argument to specify the corresponding model's name, and modify the second argument to specify the corresponding function such as train or test.
@@ -120,9 +116,7 @@ Taking [CTEN](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly
 
 #### Training
 ```
-bash script/run.sh 
-CTEN \
-main \
+bash script/run.sh CTEN main \
 --dataset ve8 \
 --resnet101_pretrained your_path \
 --video_path your_path your_path \
@@ -139,27 +133,25 @@ main \
 --audio_time 100
 ```
 
-Before running the script, make sure to replace the placeholders for the video path, audio path, pretrained model path, and result output path with your actual local paths. Once properly configured, you can train the model on the VE8 dataset to obtain the final trained weight file. For a detailed explanation of each parameter, please refer to the [Train](./docs/en/train.md)   documentation.During training or evaluation, validation results will also be printed alongside the emotion classification outputs.
+Before running the script, make sure to replace the placeholders for the video path, audio path, pretrained model path, and result output path with your actual local paths. Once properly configured, you can train the model on the VE8 dataset to obtain the final trained weight file. For a detailed explanation of each parameter, please refer to the [`train.md`](./docs/en/train.md)   documentation.During training or evaluation, validation results will also be printed alongside the emotion classification outputs.
 
 
 
 #### Testing
 ```
-bash script/run.sh 
-CTEN \
-test \
+bash script/run.sh CTEN test \
 --dataset ve8 \
 --video_path your_path your_path \
 --audio_path your_path \
 --result_path your_path
 ```
-⚠️ Note: If random data augmentation was used during training, the predictions may vary slightly each time the script is run. For more information, see the  [FAQ](./docs/en/FAQ.md).
+⚠️ Note: If random data augmentation was used during training, the predictions may vary slightly each time the script is run. For more information, see the  [`FAQ.md`](./docs/en/FAQ.md).
 
-If your goal is only to obtain the emotion classification results for each video segment in the dataset, open the [test.py](./src/CTEN/test.py#l80) file and modify line 80, replacing the placeholder string with the path to your trained weight file. Then, execute the script from the command line to generate the classification results.
+If your goal is only to obtain the emotion classification results for each video segment in the dataset, open the [`test.py`](./src/CTEN/test.py#l80) file and modify line 80, replacing the placeholder string with the path to your trained weight file. Then, execute the script from the command line to generate the classification results.
 
 #### Arguments from CTEN:
 
-- dataset: is the name of the dataset to be used. Please refer to docs/cn/dataset preparation.md for relevant instructions.
+- dataset: is the name of the dataset to be used. Please refer to [`dataset.md`](./docs/cn/dataset.md) preparation.md for relevant instructions.
 - resnet101_pretrained: pre-trained image model weight path (such as ResNet-101); used for video frame feature extraction.
 - result_path: inference or training result save path.
 video_path: video frame sequence or video file path.
