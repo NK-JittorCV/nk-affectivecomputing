@@ -36,10 +36,9 @@
 
 JACK (Jittor-based affective computing model training and deployment framework) is an official framework provided by Nankai University CV group for training and deploying affective computing methods based on Jittor, a Chinese high-performance deep learning framework. It currently support cutting-edge video emotion analysis methods and gait video emotion analysis method. Built on the Jittor framework, the deployment speed of affective computing methods can be improved by 1.1 to 1.6 times compared to PyTorch, supporting downstream applications such as tourist emotion detection, dialogue analysis, and public opinion monitoring.
 
-The high-performance deep learning framework can seamlessly integrate with the mainstream PyTorch framework. Taking the [`TSL-Net`](https://zzcheng.top/assets/pdf/2022_ACMMM_TSL300.pdf) network architecture as an example, when adapting to JACK, only about 10 modifications are required in the model code to complete the conversion, significantly reducing migration costs. Additionally, we provide detailed conversion experiences and guidance in [`Torch to Jittor FAQ.md`](./docs/en/Torch-to-Jittor-FAQ.md) to help developers get started quickly. We warmly invite more researchers to join us in advancing the localization of affective computing! Let’s work together to build a stronger domestic AI ecosystem!
+The high-performance deep learning framework Jittor can seamlessly integrate with the mainstream PyTorch framework. Taking the [`TSL-Net`](https://zzcheng.top/assets/pdf/2022_ACMMM_TSL300.pdf) network architecture as an example, when adapting to JACK, only about 10 modifications are required in the model code to complete the conversion, significantly reducing migration costs. Additionally, we provide detailed conversion experiences and guidance in [`Torch to Jittor FAQ.md`](./docs/en/Torch-to-Jittor-FAQ.md) to help developers get started quickly. We warmly invite more researchers to join us in advancing the development of affective computing! Let’s work together to build a stronger Jittor-based AI system!
 
-
-The project now support the following cutting-edge methods in the field of affective computing based on the Jittor deep learning framework:
+With the support of the high-performance deep learning framework Jittor, this project now incorporates the cutting-edge methods in the field of affective computing.
 
 | **Work**| **Train** | **Test** |
 |---------|-----------|----------|
@@ -48,9 +47,7 @@ The project now support the following cutting-edge methods in the field of affec
 | [`[AAAI'20] VAANet`](https://arxiv.org/abs/2003.00832)                                                              | [`[train script]`](./docs/en/train.md#-TSL-Net) | [`[test script]`](./docs/en/test.md#-TSL-Net) |
 | [`[TAC'24] Gait`](https://ieeexplore.ieee.org/document/10433680)                                                   | [`[train script]`](./docs/en/train.md#-Gait) | [`[test script]`](./docs/en/test.md#-Gait) |
 
-
-Performance comparison between the Jittor high-performance deep learning framework and the PyTorch framework for affective computing methods [`TSL-Net`](https://zzcheng.top/assets/pdf/2022_ACMMM_TSL300.pdf):
-
+For the affective computing method [`TSL-Net`](https://zzcheng.top/assets/pdf/2022_ACMMM_TSL300.pdf), the high-performance deep learning framework Jittor outperforms the PyTorch framework with faster inference speed, shorter training duration, and consistent output results:
 
 | Metrics computed by TSL-Net | PyTorch | Jittor |
 |-----------------------------|---------|--------|
