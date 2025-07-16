@@ -17,6 +17,10 @@
 <a href="https://github.com/zhongqihebut/Affective_Computing/pulls"><img src="https://img.shields.io/badge/PR-welcome-55EB99.svg"></a>
 </p>
 
+<p align="center">
+        <a href="./docs/en/papers.md">Paper Collections</a> &nbsp ｜ <a href="./docs/en">English Documentation</a> &nbsp ｜ &nbsp <a href="./docs/cn">中文文档</a> &nbsp
+</p>
+
 ## Introduction
 
 This is a GitHub repository containing four works in the field of affective computing based on the Jittor deep learning framework:
