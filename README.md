@@ -13,7 +13,7 @@
 <p align="center">
 <img src="https://img.shields.io/badge/python-3.8-5be.svg">
 <img src="https://img.shields.io/badge/jittor-1.3.9-orange.svg">
-<a href="https://github.com/modelscope/ms-swift/blob/main/LICENSE"><img src="https://img.shields.io/github/license/zhongqihebut/Affective_Computing"></a>
+<a href="https://github.com/zhongqihebut/Affective_Computing/blob/master/LICENSE"><img src="https://img.shields.io/github/license/zhongqihebut/Affective_Computing"></a>
 <a href="https://github.com/zhongqihebut/Affective_Computing/pulls"><img src="https://img.shields.io/badge/PR-welcome-55EB99.svg"></a>
 </p>
 
