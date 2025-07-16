@@ -98,7 +98,7 @@ Here is a minimal example of training and deployment using JACK.
 
 Next, we will take the CTEN method as an example.
 
-###Command Line
+### Command Line
 ```
 bash script/run.sh 
 CTEN \
