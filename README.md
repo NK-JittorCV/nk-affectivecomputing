@@ -1,8 +1,21 @@
-<div align="center">
+# JACK (Jittor-based affective computing model training and deployment framework)
 
-# Affective Computing Models based on Jittor
-
-</div>
+<p align="center">
+    <br>
+    <img src="assets/logo_en.png"/>
+    <br>
+<p>
+<p align="center">
+<a href="">Project Homepage</a>
+<br>
+        <a href="README_CN.md">中文</a>&nbsp ｜ &nbspEnglish</a>&nbsp
+</p>
+<p align="center">
+<img src="https://img.shields.io/badge/python-3.8-5be.svg">
+<img src="https://img.shields.io/badge/jittor-1.3.9-orange.svg">
+<a href="https://github.com/modelscope/ms-swift/blob/main/LICENSE"><img src="https://img.shields.io/github/license/zhongqihebut/Affective_Computing"></a>
+<a href="https://github.com/zhongqihebut/Affective_Computing/pulls"><img src="https://img.shields.io/badge/PR-welcome-55EB99.svg"></a>
+</p>
 
 ## Introduction
 
