@@ -27,7 +27,7 @@
 - [安装](#%EF%B8%8F-安装)
 - [使用](#-使用)
 - [License](#-License)
-- [Citation](#-citation)
+- [引用](#-引用)
 
   
 
