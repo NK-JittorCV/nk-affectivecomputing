@@ -1,4 +1,4 @@
-# JACK (Jittor-based affective computing model training and deployment framework)
+# JACK (Jittor-based Affective Computing model training and deployment frameworK)
 
 <p align="center">
     <br>
