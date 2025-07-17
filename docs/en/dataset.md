@@ -232,3 +232,78 @@ database](https://sail.usc.edu/publications/files/bussolre2008.pdf)
        ├── Neutral
        ├── Sadness
 ~~~~
+
+
+## TSL-300 dataset
+TSL-300 dataset consists of 300 untrimmed videos with an average video time of 4.3 minutes. We filter out three types of abnormal videos to provide a high-quality and diverse dataset. The selected videos are annotated by four well-trained annotators from different backgrounds. In order to alleviate the burden of dense annotation, we study the weakly-supervised setting and the fully-supervised setting used for training a model. Therefore, the dataset contains two types of annotations: frame-by-frame annotations and single-frame annotations.
+If you need the TSL-300 dataset for academic purposes, please download the [application form](./assests/TSL-300_Data_Access_Form.docx) and fill out the request information, then send it to ***gloryzzc6@sina.com***.
+We will process your application as soon as possible.
+Please make sure that the email used comes from your educational institution.
+
+### Data Preparation
+1. Prepare [TSL-300](./assests/TSL-300_Data_Access_Form.docx) dataset.
+    - We have provided constructed dataset and pre-extracted features.
+
+2. Extract features with two-stream I3D networks
+    - We recommend extracting features using [this repo](https://github.com/piergiaj/pytorch-i3d).
+    - For convenience, we provide the features we used which is available at [Baidu Drive](https://pan.baidu.com/s/1RHsm3d-ixMhmqmAJsTf3sQ?pwd=jj9w).
+    - Link the features folder by using `sudo ln -s path-to-feature ./dataset/VideoSenti/`.
+    
+3. Place the features inside the `dataset` folder.
+    - Please ensure the data structure is as below.
+
+~~~~
+├── dataset
+   └── VideoSenti
+       ├── gt.json
+       ├── split_train.txt
+       ├── split_test.txt
+       ├── fps_dict.json
+       ├── time.json
+       ├── videosenti_gt.json
+       ├── point_gaussian
+           └── point_labels.csv
+           ├── train
+       └── features
+           ├── train
+               ├── rgb
+                   ├── 1_Ekman6_disgust_3.npy
+                   ├── 2_Ekman6_joy_1308.npy
+                   └── ...
+               └── logmfcc
+                   ├── 1_Ekman6_disgust_3.npy
+                   ├── 2_Ekman6_joy_1308.npy
+                   └── ...
+           └── test
+               ├── rgb
+                   ├── 9_CMU_MOSEI_lzVA--tIse0.npy
+                   ├── 17_CMU_MOSEI_CbRexsp1HKw.npy
+                   └── ...
+               └── logmfcc
+                   ├── 9_CMU_MOSEI_lzVA--tIse0.npy
+                   ├── 17_CMU_MOSEI_CbRexsp1HKw.npy
+                   └── ...
+~~~~
+
+## Emotion-Gait dataset
+
+The used datasets are provided in the homepage of [Emotion-Gait](https://gamma.umd.edu/software). 
+
+Emotion Gait dataset contains 2,177 real gaits and 1,000 synthetic gaits with four emotion classes: happiness, sadness, anger, and neutral. The real gaits consist of 1,835 samples collected from an existing motion capture database and 342 gaits collected by the authors. Each gait in the 1,835 samples has 240 frames, while the 342 samples have flexible numbers of frames ranging from 27 to 75. The 3D skeletal data of the gaits from videos are extracted by a representative pose estimation method. All real gaits are labeled by domain experts. The synthetic gaits are generated from a trained auto-encoder that has been fed with emotion labels. In this work, we only use the 2,177 real gaits.
+
+Note that since the dataset is changed on the official website, we provide the original dataset. The code and dataset are provided for research only.
+[Baidu Drive](https://pan.baidu.com/s/1rNC7SQrwNnZBVMRzPaifZA) (acil)
+
+Please ensure the data structure is as below.
+
+~~~~
+BPM_GCN/
+├── test_affective.npy
+├── test_joint.npy
+├── test_label.pkl
+├── test_movement.npy
+├── train_affective.npy
+├── train_joint.npy
+├── train_label.pkl
+└── train_movement.npy
+~~~~
