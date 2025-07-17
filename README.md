@@ -150,6 +150,15 @@ bash script/run.sh CTEN test \
 If your goal is only to obtain the emotion classification results for each video segment in the dataset, execute the script from the command line to generate the classification results.
 
 
+#### Inference a single video
+```
+bash script/run.sh CTEN test_singlevideo \
+--video_path your_path \
+--output_frame_dir  your_path  \
+--output_audio_dir  your_path  \
+--checkpoint_path  your_path
+```
+
 
 #### Arguments from CTEN:
 
@@ -169,17 +178,7 @@ If your goal is only to obtain the emotion classification results for each video
 - `audio_n_segments`: divide the entire audio into 16 segments, extract an embedding for each segment; corresponding frame alignment.
 - `audio_time`: The duration of each audio sample.
 
-#### Reasoning using a single video
-```
-bash script/run.sh
-CTEN \
-test_singlevideo \
---video_path your_path \
---output_frame_dir  your_path  \
---output_audio_dir  your_path  \
---checkpoint_path  your_path \
---annotation_path your_path
-```
+
 
 ### 🔧 Script Parameter Explanation
 
