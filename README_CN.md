@@ -164,20 +164,20 @@ bash script/run.sh CTEN test \
 如果您的目标仅是获取数据集中每个视频片段的情感分类结果，从命令行执行脚本以生成分类结果。
 
 #### CTEN参数说明
-- dataset：是指定使用的数据集名称，可以参考[`数据集.md`](./docs/cn/数据集准备.md)相关说明。
-- resnet101_pretrained：预训练图像模型权重路径（如 ResNet-101）；用于视频帧特征提取。
-- result_path：推理或训练结果保存路径。
-- video_path：视频帧序列或视频文件的路径。
-- audio_path：对应的视频音频文件（如.mp3）所在路径。
-- annotation_path：标注文件路径，标注文件用于训练还是测试以及对应的情感分类。
-- batch_size：批大小：每次送入模型的样本数量。
-- n_epochs：总训练轮数。
-- sample_size：视频帧图像的输入尺寸（宽高）。
-- fps：视频帧率。
-- snippet_duration：每个 clip 的持续帧数。
-- audio_embed_size： 音频特征维度大小。
-- audio_n_segments：将整个音频划分为 16 个段，每段提取一个 embedding；对应帧的对齐。
-- audio_time：每段音频采样的时长。
+- `dataset`：是指定使用的数据集名称，可以参考[`数据集.md`](./docs/cn/数据集准备.md)相关说明。
+- `resnet101_pretrained`：预训练图像模型权重路径（如 ResNet-101）；用于视频帧特征提取。
+- `result_path`：推理或训练结果保存路径。
+- `video_path`：视频帧序列或视频文件的路径。
+- `audio_path`：对应的视频音频文件（如.mp3）所在路径。
+- `annotation_path`：标注文件路径，标注文件用于训练还是测试以及对应的情感分类。
+- `batch_size`：批大小：每次送入模型的样本数量。
+- `n_epochs`：总训练轮数。
+- `sample_size`：视频帧图像的输入尺寸（宽高）。
+- `fps`：视频帧率。
+- `snippet_duration`：每个 clip 的持续帧数。
+- `audio_embed_size`： 音频特征维度大小。
+- `audio_n_segments`：将整个音频划分为 16 个段，每段提取一个 embedding；对应帧的对齐。
+- `audio_time`：每段音频采样的时长。
 
 #### 使用单个视频进行情感识别推理
 ```
