@@ -24,6 +24,17 @@ from jittor import mpi
 import cv2
 from moviepy.editor import VideoFileClip
 
+emotion_labels = {
+    0: "Anger",
+    1: "Anticipation",
+    2: "Disgust",
+    3: "Fear",
+    4: "Joy",
+    5: "Sadness",
+    6: "Surprise",
+    7: "Trust"
+}
+
 def val_epoch(epoch, data_loader, model, criterion, opt, writer, optimizer):
     model.eval()
     batch_time = AverageMeter()
@@ -39,8 +50,9 @@ def val_epoch(epoch, data_loader, model, criterion, opt, writer, optimizer):
         data_time.update(time.time() - end_time)
         with jt.no_grad():
             output1, loss1, gamma1 = run_model(opt, [visual, target, audio], model, criterion, i, print_attention=False)
-            predicted_class =  jt.argmax(output1.data, 1)[0] 
-            print('预测的视频情感类别是:',predicted_class)
+            predicted_class = jt.argmax(output1.data, 1)[0].item()  # 转为 Python 整数
+            predicted_emotion = emotion_labels.get(predicted_class, "Unknown")
+            print(f"预测的视频情感类别是: {predicted_class} ({predicted_emotion})")
 
 def get_single_video_test_set(opt, spatial_transform, temporal_transform, target_transform):
     transforms = [spatial_transform, temporal_transform, target_transform]
@@ -58,8 +70,8 @@ def extract_video_frames_and_audio(video_path, output_frame_root, output_audio_r
 
     参数:
     - video_path: 原始视频路径
-    - output_frame_root: 帧图像的根目录（会保存到 output_frame_root/test/video_id）
-    - output_audio_root: 音频的根目录（会保存为 output_audio_root/test/video_id.mp3）
+    - output_frame_root: 帧图像的根目录（会保存到 output_frame_root/Anger/video_id）
+    - output_audio_root: 音频的根目录（会保存为 output_audio_root/Anger/video_id.mp3）
     - video_id: 当前视频的编号，决定帧文件夹名和音频文件名，默认 "1"
 
     返回:
@@ -71,8 +83,8 @@ def extract_video_frames_and_audio(video_path, output_frame_root, output_audio_r
         raise FileNotFoundError(f"未找到视频文件: {video_path}")
 
     # 组装输出路径
-    output_frame_dir = os.path.join(output_frame_root, "test", video_id)
-    output_audio_path = os.path.join(output_audio_root, "test", f"{video_id}.mp3")
+    output_frame_dir = os.path.join(output_frame_root, "Anger", video_id)
+    output_audio_path = os.path.join(output_audio_root, "Anger", f"{video_id}.mp3")
 
     # 创建输出目录
     os.makedirs(output_frame_dir, exist_ok=True)
@@ -93,6 +105,10 @@ def extract_video_frames_and_audio(video_path, output_frame_root, output_audio_r
 
     cap.release()
     print(f"[INFO] 提取完成，共保存 {frame_idx} 帧")
+    n_frames_path = os.path.join(output_frame_dir, "n_frames")
+    with open(n_frames_path, 'w') as f:
+        f.write(str(frame_idx))
+    print(f"[INFO] 帧数记录已保存到 {n_frames_path}")
 
     # ---------------------- 提取音频 ----------------------
     print(f"[INFO] 开始提取音频到 {output_audio_path} ...")
