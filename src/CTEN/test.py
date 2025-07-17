@@ -77,7 +77,8 @@ def main():
     combined_loader = get_data_loader(opt, combined_data, shuffle=False ,num_workers=1)
     print('len_combined_data:',len(combined_data))
 
-    checkpoint = jt.load("/home/ubuntu/zzq/CTEN_jittor/ve8.pth")
+    ckpt_path=opt.checkpoint_path
+    checkpoint = jt.load(ckpt_path)
     model.load_state_dict(remove_prefix(checkpoint))
     acc = val_epoch(1, combined_loader, model, criterion, opt, writer, optimizer)
     writer.close()
