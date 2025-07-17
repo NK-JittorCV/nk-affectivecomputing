@@ -142,30 +142,32 @@ bash script/run.sh CTEN test \
 --dataset ve8 \
 --video_path your_path your_path \
 --audio_path your_path \
---result_path your_path
+--result_path your_path \
+--checkoint_path your_path
 ```
 ⚠️ Note: If random data augmentation was used during training, the predictions may vary slightly each time the script is run. For more information, see the  [`FAQ.md`](./docs/en/FAQ.md).
 
-If your goal is only to obtain the emotion classification results for each video segment in the dataset, open the [`test.py`](./src/CTEN/test.py#l80) file and modify line 80, replacing the placeholder string with the path to your trained weight file. Then, execute the script from the command line to generate the classification results.
+If your goal is only to obtain the emotion classification results for each video segment in the dataset, execute the script from the command line to generate the classification results.
 
 
 
 #### Arguments from CTEN:
 
-- dataset: is the name of the dataset to be used. Please refer to [`dataset.md`](./docs/cn/dataset.md) preparation.md for relevant instructions.
-- resnet101_pretrained: pre-trained image model weight path (such as ResNet-101); used for video frame feature extraction.
-- result_path: inference or training result save path.
-video_path: video frame sequence or video file path.
-audio_path: corresponding video and audio file (such as .mp3) path.
-- annotation_path: annotation file path, annotation file for training or testing and corresponding sentiment classification.
-- batch_size: batch size: the number of samples fed into the model each time.
-- n_epochs: total number of training rounds.
-- sample_size: input size (width and height) of video frame image.
-- fps: video frame rate.
-- snippet_duration: the number of frames per clip.
-- audio_embed_size: audio feature dimension size.
-- audio_n_segments: divide the entire audio into 16 segments, extract an embedding for each segment; corresponding frame alignment.
-- audio_time: The duration of each audio sample.
+- `dataset`: is the name of the dataset to be used. Please refer to [`dataset.md`](./docs/cn/dataset.md) preparation.md for relevant instructions.
+- `resnet101_pretrained`: pre-trained image model weight path (such as ResNet-101); used for video frame feature extraction.
+- `result_path`: inference or training result save path.
+- `video_path`: video frame sequence or video file path.
+- `audio_path`: corresponding video and audio file (such as .mp3) path.
+- `annotation_path`: annotation file path, annotation file for training or testing and corresponding sentiment classification.
+- `batch_size`: batch size: the number of samples fed into the model each time.
+- `n_epochs`: total number of training rounds.
+- `sample_size`: input size (width and height) of video frame image.
+- `fps`: video frame rate.
+- `snippet_duration`: the number of frames per clip.
+- `audio_embed_size`: audio feature dimension size.
+- `checkpoint_path`: Path to the pretrained model weights.
+- `audio_n_segments`: divide the entire audio into 16 segments, extract an embedding for each segment; corresponding frame alignment.
+- `audio_time`: The duration of each audio sample.
 
 #### Reasoning using a single video
 ```
