@@ -148,6 +148,8 @@ bash script/run.sh CTEN test \
 
 If your goal is only to obtain the emotion classification results for each video segment in the dataset, open the [`test.py`](./src/CTEN/test.py#l80) file and modify line 80, replacing the placeholder string with the path to your trained weight file. Then, execute the script from the command line to generate the classification results.
 
+
+
 #### Arguments from CTEN:
 
 - dataset: is the name of the dataset to be used. Please refer to [`dataset.md`](./docs/cn/dataset.md) preparation.md for relevant instructions.
@@ -164,6 +166,49 @@ audio_path: corresponding video and audio file (such as .mp3) path.
 - audio_embed_size: audio feature dimension size.
 - audio_n_segments: divide the entire audio into 16 segments, extract an embedding for each segment; corresponding frame alignment.
 - audio_time: The duration of each audio sample.
+
+#### Reasoning using a single video
+```
+bash script/run.sh
+CTEN \
+test_singlevideo \
+--video_path your_path \
+--output_frame_dir  your_path  \
+--output_audio_dir  your_path  \
+--checkpoint_path  your_path \
+--annotation_path your_path
+```
+
+### 🔧 Script Parameter Explanation
+
+Each parameter in this script is **required**:
+
+- **First parameter**: Specifies the name of the method to be used.
+- **Second parameter**: Indicates whether the script is used for single-video inference.
+- `video_path`: Path to the input video to be analyzed.
+
+Before inference begins, the script will automatically extract both **video frames** and **audio** from the input video. These will be saved into two separate folders:
+
+- `output_frame_dir`: Directory where the extracted video frames will be stored.
+- `output_audio_dir`: Directory where the extracted audio file (in `.mp3` format) will be saved.
+- `checkpoint_path`: Path to the pretrained model weights.
+- `annotation_path`: Path to the annotation file associated with the video.
+
+> ⚠️ **Note**: Make sure all paths are correctly set before running the script. The script handles the frame and audio extraction automatically.For annotation files, please refer to the following format.
+
+```
+{
+    "labels": ["Anger", "Anticipation", "Disgust", "Fear", "Joy", "Sadness", "Surprise", "Trust"],
+    "database": {
+      "1": {
+        "subset": "validation",
+        "annotations": {
+          "label": "Anger"
+        }
+      }
+    }
+  }
+```
 
 ## 🏛 License
 
