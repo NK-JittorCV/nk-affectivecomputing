@@ -41,10 +41,11 @@ def get_parser():
         default='./work_dir/temp',
         help='the work folder for storing results')
 
-    parser.add_argument('-model_saved_name', default='')
+    parser.add_argument('--model_saved_name', default='')
+
     parser.add_argument(
         '--config',
-        default='./src/BPM_GCN/config/EGait_journal/train_diff_combine_double_score_fagg.yaml',
+        default='./src/Gait/config/EGait_journal/train_diff_combine_double_score_fagg.yaml',
         help='path to the configuration file')
 
     # processor
@@ -116,7 +117,7 @@ def get_parser():
         help='the arguments of model')
     parser.add_argument(
         '--weights',
-        default=None,
+        default="./src/Gait/egait_runs/runs_diff_combine_fagg/fagg_att_cascade_st/model_epoch_115_best.pth",
         help='the weights for network initialization')
     parser.add_argument(
         '--ignore-weights',
@@ -429,7 +430,7 @@ class Processor():
         time_average = time_all / count_batchsize
         forward_time.append(time_average)
         tmp_time = "epoch: " + str(epoch) + ":Time for forward:" + str(time_average) + '\n'
-        with open('./src/BPM_GCN/logs/train/time_need.txt', 'a') as f:
+        with open('./src/Gait/logs/train/time_need.txt', 'a') as f:
             f.write(tmp_time)
         # statistics of time consumption and loss
         proportion = {
@@ -551,20 +552,20 @@ class Processor():
                     loader_name=['test'])
 
             self.print_log('best accuracy: {}'.format(self.best_acc))
-            with open('./src/BPM_GCN/logs/train/memory_usages.txt', 'a') as file:
+            with open('./src/Gait/logs/train/memory_usages.txt', 'a') as file:
                 for item in memory_usages:
                     file.write(f"{item}\n")
 
-            with open('./src/BPM_GCN/logs/train/forward_time_need.txt', 'a') as file:
+            with open('./src/Gait/logs/train/forward_time_need.txt', 'a') as file:
                 for item in forward_time:
                     file.write(f"{item}\n")
 
             tmp_time = "Time for one epoch::" + str(time_all / count_iters) + '\n'
 
-            with open('./src/BPM_GCN/logs/train/time_need.txt', 'a') as f:
+            with open('./src/Gait/logs/train/time_need.txt', 'a') as f:
                 f.write(tmp_time)
 
-            with open('./src/BPM_GCN/logs/train/time_need.txt', 'a') as f:
+            with open('./src/Gait/logs/train/time_need.txt', 'a') as f:
                 f.write(f"Average memory usage：{sum(memory_usages) / len(memory_usages)}\n")
                 f.write(f"Average forward time：{sum(forward_time) / len(forward_time)}\n")
 
