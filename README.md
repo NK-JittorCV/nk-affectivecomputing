@@ -60,7 +60,7 @@ For the affective computing method [`TSL-Net`](https://zzcheng.top/assets/pdf/20
 | F2@AVG (test)               | 0.3369  | 0.3577 |
 
 ## 🎉 News
-- 🎁 2025.07.16: Project initialized. This project supports four video emotion analysis tasks, including [CTEN](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly_Supervised_Video_Emotion_Detection_and_Prediction_via_Cross-Modal_Temporal_CVPR_2023_paper.pdf), [TSL_Net](https://zzcheng.top/assets/pdf/2022_ACMMM_TSL300.pdf), [VAANet](https://arxiv.org/abs/2003.00832), and [Gait](https://ieeexplore.ieee.org/document/10433680). Training and testing scripts are provided for all methods.
+- 🎁 2025.07.16: Project initialized. This project supports four video emotion analysis methods, including [CTEN](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly_Supervised_Video_Emotion_Detection_and_Prediction_via_Cross-Modal_Temporal_CVPR_2023_paper.pdf), [TSL_Net](https://zzcheng.top/assets/pdf/2022_ACMMM_TSL300.pdf), [VAANet](https://arxiv.org/abs/2003.00832), and [Gait](https://ieeexplore.ieee.org/document/10433680). Training and testing scripts are provided for all methods.
 
 
 ## 🛠️ Installation
