@@ -162,7 +162,7 @@ bash script/run.sh CTEN test_singlevideo \
 
 #### Arguments from CTEN:
 
-- `dataset`: the name of the dataset to be used. Please refer to [`dataset.md`](./docs/cn/dataset.md) and preparation.md for relevant instructions.
+- `dataset`: the name of the dataset to be used. Please refer to [`dataset.md`](./docs/cn/dataset.md) for relevant instructions.
 - `resnet101_pretrained`: pre-trained image model weight path (such as ResNet-101); used for video frame feature extraction.
 - `result_path`: inference or training result save path.
 - `video_path`: video frame sequence or video file path.
