@@ -34,7 +34,7 @@
 
 ***Emotionally and Intellectually Integrated Intelligent*** is an important development direction for next-generation artificial intelligence and a key step toward achieving artificial general intelligence (AGI). In human-computer interaction scenarios, emotionally intelligent digital humans and robots need to accurately interpret multimodal interaction information and deeply explore human internal emotional states to enable more realistic and natural human-computer dialogues. However, given the high complexity of multimodal emotional data semantics, effectively modeling cross-modal associative relationships remains a critical challenge that urgently needs to be addressed in the field.
 
-JACK (Jittor-based affective computing model training and deployment framework) is an official framework provided by Nankai University CV group for training and deploying affective computing methods based on Jittor, a Chinese high-performance deep learning framework. It currently support cutting-edge video emotion analysis methods and gait video emotion analysis method. Built on the Jittor framework, the deployment speed of affective computing methods can be improved by 1.1 to 1.6 times compared to PyTorch, supporting downstream applications such as tourist emotion detection, dialogue analysis, and public opinion monitoring.
+JACK (Jittor-based affective computing model training and deployment framework) is an official framework provided by Nankai University CV group for training and deploying affective computing methods based on Jittor, a Chinese high-performance deep learning framework. It currently supports cutting-edge video emotion analysis methods and gait video emotion analysis method. Built on the Jittor framework, the deployment speed of affective computing methods can be improved by 1.1 to 1.6 times compared to PyTorch, supporting downstream applications such as tourist emotion detection, dialogue analysis, and public opinion monitoring.
 
 The high-performance deep learning framework Jittor can seamlessly integrate with the mainstream PyTorch framework. Taking the [`TSL-Net`](https://zzcheng.top/assets/pdf/2022_ACMMM_TSL300.pdf) network architecture as an example, when adapting to JACK, only about 10 modifications are required in the model code to complete the conversion, significantly reducing migration costs. Additionally, we provide detailed conversion experiences and guidance in [`Torch to Jittor FAQ.md`](./docs/en/Torch-to-Jittor-FAQ.md) to help developers get started quickly. We warmly invite more researchers to join us in advancing the development of affective computing! Let’s work together to build a stronger Jittor-based AI system!
 
@@ -143,7 +143,7 @@ bash script/run.sh CTEN test \
 --video_path your_path your_path \
 --audio_path your_path \
 --result_path your_path \
---checkoint_path your_path
+--checkpoint_path your_path
 ```
 ⚠️ Note: If random data augmentation was used during training, the predictions may vary slightly each time the script is run. For more information, see the  [`FAQ.md`](./docs/en/FAQ.md).
 
@@ -162,7 +162,7 @@ bash script/run.sh CTEN test_singlevideo \
 
 #### Arguments from CTEN:
 
-- `dataset`: is the name of the dataset to be used. Please refer to [`dataset.md`](./docs/cn/dataset.md) preparation.md for relevant instructions.
+- `dataset`: the name of the dataset to be used. Please refer to [`dataset.md`](./docs/cn/dataset.md) and preparation.md for relevant instructions.
 - `resnet101_pretrained`: pre-trained image model weight path (such as ResNet-101); used for video frame feature extraction.
 - `result_path`: inference or training result save path.
 - `video_path`: video frame sequence or video file path.
