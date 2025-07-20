@@ -44,15 +44,13 @@ def get_spatial_transform(opt, mode):
 
 例如，在 PyTorch 中使用 DataParallel 或 DistributedDataParallel（DDP） 进行多卡训练时，模型参数名称会自动添加 module. 前缀（例如 ta_net.conv.weight → module.ta_net.conv.weight）。而 Jittor 的模型没有这个前缀，导致加载失败。
 
-## PyTorch 转 Jittor 常见问题与解答（FAQ）
-
-### Q1. Jittor 支持 PyTorch 的哪些基本操作？
+### Q4. Jittor 支持 PyTorch 的哪些基本操作？
 
 **答：** Jittor 支持大多数常见的张量操作，如 `matmul`, `conv2d`, `relu`, `batchnorm`, `dropout`, `softmax`, `cross_entropy`, `reshape`, `permute`, `view` 等。可通过查阅 [Jittor API 文档](https://cg.cs.tsinghua.edu.cn/jittor/api/) 获取对应函数的替代实现。
 
 ---
 
-### Q2. 如何将 `torch.nn.Module` 转换为 Jittor 模型？
+### Q5. 如何将 `torch.nn.Module` 转换为 Jittor 模型？
 
 **答：** 继承的基类把 `torch.nn.Module` 替换成 `jittor.nn.Module` ，并使用jittor.nn中的函数重写 `__init__` 和 `execute`  `(即forward方法)` 方法，替换掉对应的torch.nn中的函数。例如：
 
@@ -76,7 +74,7 @@ class Net(jittor.nn.Module):
 
 ---
 
-### Q3. Jittor 的张量与 PyTorch 的 `tensor` 有什么区别？
+### Q6. Jittor 的张量与 PyTorch 的 `tensor` 有什么区别？
 
 **答：**
 - PyTorch 使用 `torch.tensor`，Jittor 使用 `jt.array` 。
@@ -87,7 +85,7 @@ class Net(jittor.nn.Module):
 
 ---
 
-### Q4. 如何进行梯度反向传播和参数优化？
+### Q7. 如何进行梯度反向传播和参数优化？
 
 **答：**
 Jittor中反向传播和参数优化的方法略有区别，主要是在loss的使用上，示例程序如下所示：
@@ -111,7 +109,7 @@ optimizer.backward(loss)
 optimizer.step()
 ```
 ---
-### Q5. 使用Jittor如何加载数据集？
+### Q8. 使用Jittor如何加载数据集？
 
 **答：**
 Jittor中使用jittor.dataset.Dataset作为基类定义数据集，并重写__len__(),__init()__,__getitem()__ 等方法，示例代码如下所示：
@@ -131,7 +129,7 @@ jittor的数据加载器DataLoder位于 jittor.dataset 中 使用 from jittor.da
 
 ---
 
-### Q6. 使用Jittor如何加载预训练模型或保存模型？
+### Q9. 使用Jittor如何加载预训练模型或保存模型？
 
 **答：**
 jittor中保存和加载预训练模型的方法和torch中类似，jittor中具有同名的函数，只需要把torch替换成jittor即可。
@@ -146,7 +144,7 @@ Jittor 支持加载 `.pth` 格式的预训练模型，也支持使用torch训练
 
 ---
 
-### Q7. PyTorch 的 `with torch.no_grad()` 在 Jittor 中如何处理？
+### Q10. PyTorch 的 `with torch.no_grad()` 在 Jittor 中如何处理？
 
 **答：** Jittor 通过 `jt.no_grad()` 实现类似功能，用于测试阶段关闭梯度：
 
@@ -157,7 +155,7 @@ with jt.no_grad():
 
 ---
 
-### Q8. Jittor中如何使用 GPU 运算？是否需要 `.cuda()`？
+### Q11. Jittor中如何使用 GPU 运算？是否需要 `.cuda()`？
 
 **答：**
 Jittor 自动检测 GPU 并优先使用。Jittor会进行统一内存管理，不需要在手动调用 `.cuda()`,`.cpu()`,`.to(device)` 等函数，如果需要明确设置设备，可以使用：
@@ -170,7 +168,7 @@ jt.flags.use_cuda = 0  # 使用 CPU
 ---
 
 
-### Q9. 迁移时遇到 PyTorch 特有的函数怎么办？
+### Q12. 迁移时遇到 PyTorch 特有的函数怎么办？
 
 **答：**
 建议采取以下方案：
