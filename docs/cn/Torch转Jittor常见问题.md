@@ -32,16 +32,18 @@ def get_spatial_transform(opt, mode):
     else:
         raise Exception
 ```
-
+---
 ### Q2: 如何评估修改后的Jittor版本的代码与Torch版本的代码的一致性和性能表现？
 为了全面评估 Jittor 版本与 Torch 版本代码的一致性和性能表现，可从两个方面进行分析：在一致性方面，应对比相同输入下两者输出的 logits 或分类结果。若使用 logits 进行评估，可计算其 L2 距离或最大绝对误差；若采用分类结果进行评估，则可统计两者分类结果不一致的样本数量。此外，对于训练过程的对比，可以通过观察 loss 曲线的趋势进行判断。
 
 
+---
 ### Q3:修改jittor版本的代码之后，运行的时候发现有很多参数加载失败是什么原因？
 主要考虑两个方面的原因。一方面是保存的参数名称与当前模型期望的名称不一致；另一方面可能是当前代码中的模型结构与保存的模型参数结构不一致。
 
 例如，在 PyTorch 中使用 DataParallel 或 DistributedDataParallel（DDP） 进行多卡训练时，模型参数名称会自动添加 module. 前缀（例如 ta_net.conv.weight → module.ta_net.conv.weight）。而 Jittor 的模型没有这个前缀，导致加载失败。
 
+---
 ### Q4. Jittor 支持 PyTorch 的哪些基本操作？
 
 **答：** Jittor 支持大多数常见的张量操作，如 `matmul`, `conv2d`, `relu`, `batchnorm`, `dropout`, `softmax`, `cross_entropy`, `reshape`, `permute`, `view` 等。可通过查阅 [Jittor API 文档](https://cg.cs.tsinghua.edu.cn/jittor/api/) 获取对应函数的替代实现。
