@@ -1,7 +1,4 @@
-## Dependencies
-
-#### Recommended Environment
-
+## Recommended Environment
 * Python 3.8.0
 * jittor 1.3.9.14
 * CUDA 11.3
