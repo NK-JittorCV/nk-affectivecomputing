@@ -164,7 +164,7 @@ bash script/run.sh CTEN test_singlevideo \
 - `dataset`: the name of the dataset to be used. Please refer to [`dataset.md`](./docs/cn/dataset.md) for relevant instructions.
 - `resnet101_pretrained`: pre-trained image model weight path (such as ResNet-101); used for video frame feature extraction.
 - `result_path`: inference or training result save path.
-- `video_path`: video frame sequence or video file path.
+- `video_path`: video frame sequence or video file path. When inferring a single video, this parameter is the path to the input video.
 - `audio_path`: corresponding video and audio file (such as .mp3) path.
 - `annotation_path`: annotation file path, annotation file for training or testing and corresponding sentiment classification.
 - `batch_size`: batch size: the number of samples fed into the model each time.
@@ -176,39 +176,10 @@ bash script/run.sh CTEN test_singlevideo \
 - `checkpoint_path`: Path to the pretrained model weights.
 - `audio_n_segments`: divide the entire audio into 16 segments, extract an embedding for each segment; corresponding frame alignment.
 - `audio_time`: The duration of each audio sample.
-
-
-
-### 🔧 Script Parameter Explanation
-
-Each parameter in this script is **required**:
-
-- **First parameter**: Specifies the name of the method to be used.
-- **Second parameter**: Indicates whether the script is used for single-video inference.
-- `video_path`: Path to the input video to be analyzed.
-
-Before inference begins, the script will automatically extract both **video frames** and **audio** from the input video. These will be saved into two separate folders:
-
-- `output_frame_dir`: Directory where the extracted video frames will be stored.
-- `output_audio_dir`: Directory where the extracted audio file (in `.mp3` format) will be saved.
+- `output_frame_dir`: Directory where the extracted video frames will be stored. Before inferring single video, the script will automatically extract video frames from the input video
+- `output_audio_dir`: Directory where the extracted audio file (in `.mp3` format) will be saved. Before inferring single video, the script will automatically extract audio from the input video
 - `checkpoint_path`: Path to the pretrained model weights.
-- `annotation_path`: Path to the annotation file associated with the video.
 
-> ⚠️ **Note**: Make sure all paths are correctly set before running the script. The script handles the frame and audio extraction automatically.For annotation files, please refer to the following format.
-
-```
-{
-    "labels": ["Anger", "Anticipation", "Disgust", "Fear", "Joy", "Sadness", "Surprise", "Trust"],
-    "database": {
-      "1": {
-        "subset": "validation",
-        "annotations": {
-          "label": "Anger"
-        }
-      }
-    }
-  }
-```
 
 ## 🏛 License
 
