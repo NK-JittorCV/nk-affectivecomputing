@@ -52,7 +52,6 @@ For the affective computing method [`TSL-Net`](https://zzcheng.top/assets/pdf/20
 | Metrics computed by TSL-Net | PyTorch | Jittor |
 |-----------------------------|---------|--------|
 | Average Forward Time (train)| 0.324s  | 0.068s |
-| Average Memory Usage (train)| 11319MB | 16132MB|
 | Single Iteration Time(train)| 1.162s  | 0.981s |
 | Average_mAP[0.1:0.3] (test) | 0.1985  | 0.1949 |
 | Average_pAP[0.1:0.3] (test) | 0.2106  | 0.2095 |
