@@ -2,7 +2,6 @@
 
 Below are some common issues encountered when using the Jittor version of the code.
 
-## Training
 
 ### Q1: In the VAANet and CTEN projects, why are the emotion classification results inconsistent between two runs of `test.py` on the same video dataset?
 
@@ -44,11 +43,13 @@ def get_spatial_transform(opt, mode):
         raise Exception
 ```
 
+---
 ### Q2: How to evaluate the consistency and performance between the modified Jittor version and the original Torch version?
 
 To comprehensively evaluate the consistency and performance of the Jittor version compared to the Torch version, two aspects should be considered. For consistency, the outputs of both frameworks under the same input should be compared, either at the level of logits or classification results. When using logits for evaluation, the L2 distance or maximum absolute error can be calculated; when using classification results, the number of mismatched predictions can be counted. Additionally, for comparing the training processes, the trend of the loss curves can be observed to assess differences in optimization behavior.
 
 
+---
 ### Q3: After modifying the Jittor version code, many parameters fail to load during execution. What could be the reasons?
 
 There are two main potential causes:
@@ -59,15 +60,15 @@ For example:
 - When using PyTorch's DataParallel or DistributedDataParallel (DDP) for multi-GPU training, parameter names automatically get a `module.` prefix (e.g., `ta_net.conv.weight` becomes `module.ta_net.conv.weight`)
 - Jittor's model doesn't have this prefix, which causes loading failures
 
-## PyTorch to Jittor Conversion: Frequently Asked Questions (FAQ)
 
-### Q1. Which basic PyTorch operations does Jittor support?
+---
+### Q4. Which basic PyTorch operations does Jittor support?
 
 **Answer:** Jittor supports most common tensor operations such as `matmul`, `conv2d`, `relu`, `batchnorm`, `dropout`, `softmax`, `cross_entropy`, `reshape`, `permute`, `view`, etc. You can find alternative implementations in the [Jittor API documentation](https://cg.cs.tsinghua.edu.cn/jittor/api/).
 
 ---
 
-### Q2. How to convert `torch.nn.Module` to a Jittor model?
+### Q5. How to convert `torch.nn.Module` to a Jittor model?
 
 **Answer:** Replace the base class `torch.nn.Module` with `jittor.nn.Module` and rewrite the `__init__` and `execute` (equivalent to PyTorch's `forward`) methods using Jittor's functions. For example:
 
@@ -90,7 +91,7 @@ class Net(jittor.nn.Module):
 ```
 
 ---
-### Q3. What's the difference between Jittor's tensors and PyTorch's `tensor`?
+### Q6. What's the difference between Jittor's tensors and PyTorch's `tensor`?
 
 **Answer:**
 - PyTorch uses `torch.tensor`, Jittor uses `jt.array`.
@@ -100,7 +101,7 @@ class Net(jittor.nn.Module):
 - Jittor can use `jittor.array(data)` to convert from numpy type to `Var` type.
 
 ---
-### Q4. How to perform gradient backpropagation and parameter optimization?
+### Q7. How to perform gradient backpropagation and parameter optimization?
 
 **Answer:**
 The methods for backpropagation and optimization in Jittor are slightly different, mainly in loss usage. Example code:
@@ -124,7 +125,7 @@ optimizer.backward(loss)
 optimizer.step()
 ```
 
-### Q5. How to load datasets in Jittor?
+### Q8. How to load datasets in Jittor?
 
 **Answer:**
 In Jittor, use jittor.dataset.Dataset as base class to define datasets, and override __len__(), __init()__, __getitem()__ methods. Example code:
@@ -141,7 +142,7 @@ class SentiFeature(data.Dataset):
 ```
 Jittor's data loader DataLoader is in jittor.dataset, import with from jittor.dataset import DataLoader, usage is similar to torch.
 
-### Q6. How to load pretrained models or save models in Jittor?
+### Q9. How to load pretrained models or save models in Jittor?
 
 **Answer:**
 Saving and loading pretrained models in Jittor is similar to torch, with same-named functions (just replace torch with jittor):
@@ -156,7 +157,7 @@ model.load_parameters(jt.load("model.pth"))
 
 Jittor supports loading .pth format pretrained models, including those trained with torch.
 
-### Q7. How to handle PyTorch's with torch.no_grad() in Jittor?
+### Q10. How to handle PyTorch's with torch.no_grad() in Jittor?
 **Answer:**: Jittor implements similar functionality with jt.no_grad(), used to disable gradients during testing:
 
 ```python
@@ -165,7 +166,7 @@ with jt.no_grad():
 ```
 
 
-### Q8. How to use GPU computation in Jittor? Is .cuda() needed?
+### Q11. How to use GPU computation in Jittor? Is .cuda() needed?
 **Answer:**
 Jittor automatically detects and prioritizes GPU usage. It performs unified memory management, no need to manually call .cuda(), .cpu(), .to(device) etc. To explicitly set device:
 
@@ -174,7 +175,7 @@ jt.flags.use_cuda = 1  # Enable GPU
 jt.flags.use_cuda = 0  # Use CPU
 ```
 
-### Q9. What to do when encountering PyTorch-specific functions during migration?
+### Q12. What to do when encountering PyTorch-specific functions during migration?
 **Answer:**
 Recommended solutions:
 ```python
