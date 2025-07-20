@@ -291,8 +291,6 @@ The used datasets are provided in the homepage of [Emotion-Gait](https://gamma.u
 
 Emotion Gait dataset contains 2,177 real gaits and 1,000 synthetic gaits with four emotion classes: happiness, sadness, anger, and neutral. The real gaits consist of 1,835 samples collected from an existing motion capture database and 342 gaits collected by the authors. Each gait in the 1,835 samples has 240 frames, while the 342 samples have flexible numbers of frames ranging from 27 to 75. The 3D skeletal data of the gaits from videos are extracted by a representative pose estimation method. All real gaits are labeled by domain experts. The synthetic gaits are generated from a trained auto-encoder that has been fed with emotion labels. In this work, we only use the 2,177 real gaits.
 
-Note that since the dataset is changed on the official website, we provide the original dataset. The code and dataset are provided for research only.
-[Baidu Drive](https://pan.baidu.com/s/1rNC7SQrwNnZBVMRzPaifZA) (acil)
 
 Please ensure the data structure is as below.
 
