@@ -118,7 +118,7 @@ Taking [CTEN](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly
 bash script/run.sh CTEN main \
 --dataset ve8 \
 --resnet101_pretrained your_path \
---video_path your_path your_path \
+--video_path your_path \
 --annotation_path src/CTEN/data/ve8_04.json \
 --audio_path your_path \
 --result_path your_path \
@@ -140,7 +140,7 @@ Before running the script, make sure to replace the placeholders for the video p
 ```
 bash script/run.sh CTEN test \
 --dataset ve8 \
---video_path your_path your_path \
+--video_path your_path \
 --audio_path your_path \
 --result_path your_path \
 --checkpoint_path your_path
