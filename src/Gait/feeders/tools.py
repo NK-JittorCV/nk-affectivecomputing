@@ -103,7 +103,7 @@ def random_move(data_numpy,
 
 
 def random_shift(data_numpy):
-    # input: C,T,V,M 偏移其中一段
+    # input: C,T,V,M 
     C, T, V, M = data_numpy.shape
     data_shift = np.zeros(data_numpy.shape)
     valid_frame = (data_numpy != 0).sum(axis=3).sum(axis=2).sum(axis=0) > 0
