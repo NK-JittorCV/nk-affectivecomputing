@@ -17,7 +17,7 @@ def conv_branch_init(conv, branches):
     weight = conv.weight
     n, k1, k2, _ = weight.shape
     std = math.sqrt(2. / (n * k1 * k2 * branches))
-    nn.init.gauss_(weight, mean=0, std=std)  # Jittor 的高斯初始化
+    nn.init.gauss_(weight, mean=0, std=std)  
     if conv.bias is not None:
         nn.init.constant_(conv.bias, 0)
 
@@ -58,7 +58,7 @@ class unit_gcn(nn.Module):
         inter_channels = out_channels // coff_embedding
         self.inter_c = inter_channels
         self.PA = jt.array(A.astype(np.float32))
-        self.PA = self.PA * 1e-6  # 初始化为 1e-6
+        self.PA = self.PA * 1e-6  
 
         # self.PA = nn.Parameter(torch.from_numpy(A.astype(np.float32)))
         # nn.init.constant_(self.PA, 1e-6)
@@ -121,7 +121,7 @@ class unit_gcn(nn.Module):
 
 class ZeroModule(nn.Module):
     def execute(self, x):
-        return 0  # 返回和输入同形状的 0
+        return 0  
 
 class TCN_GCN_unit(nn.Module):
     def __init__(self, in_channels, out_channels, A, stride=1, residual=True):
@@ -191,8 +191,6 @@ class fusion(nn.Module):
         self.att_N_m = ChannelAttention(16)
         
     def execute(self,x_p,x_m):
-        #B*C*T*N 自适应融合，T和N各自轴上
-        #情感特征的参数化，或者平均方式的参数化。
         B,C,T,N=x_p.size()
         x_p_T=x_p.permute(0,2,1,3)
         x_p_N=x_p.permute(0,3,2,1)
