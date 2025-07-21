@@ -242,11 +242,11 @@ Please make sure that the email used comes from your educational institution.
 
 ### Data Preparation
 1. Prepare [TSL-300](./assets/TSL-300_Data_Access_Form.docx) dataset.
-    - We have provided constructed dataset and pre-extracted features.
+    - We have provided the constructed dataset and pre-extracted features.
 
 2. Extract features with two-stream I3D networks
     - We recommend extracting features using [this repo](https://github.com/piergiaj/pytorch-i3d).
-    - For convenience, we provide the features we used which is available at [Baidu Drive](https://pan.baidu.com/s/1RHsm3d-ixMhmqmAJsTf3sQ?pwd=jj9w).
+    - For convenience, we provide the features we used which are available at [Baidu Drive](https://pan.baidu.com/s/1RHsm3d-ixMhmqmAJsTf3sQ?pwd=jj9w).
     - Link the features folder by using `sudo ln -s path-to-feature ./dataset/VideoSenti/`.
     
 3. Place the features inside the `dataset` folder.
