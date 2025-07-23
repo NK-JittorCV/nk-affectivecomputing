@@ -12,8 +12,6 @@ from transforms.target import ClassLabel
 from train import train_epoch
 from validation import val_epoch
 
-#from torch.utils.data import DataLoader
-#from torch.cuda import device_count
 import jittor as jt
 from tensorboardX import SummaryWriter
 
