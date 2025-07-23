@@ -183,12 +183,30 @@ class VE8Dataset(Dataset):
         return len(self.data)
 
 def make_dataset(video_root_path, annotation_path, audio_root_path, subset, fps=30, need_audio=True):
-    data = load_annotation_data(annotation_path)
-    video_names, annotations = get_video_names_and_annotations(data, subset)
-    class_to_idx = get_class_labels(data)
-    idx_to_class = {}
-    for name, label in class_to_idx.items():
-        idx_to_class[label] = name
+    #video_names, annotations, class_to_idx, idx_to_class = [], [], {}, {}
+
+    # 加载 annotation（仅在训练阶段需要）
+    if annotation_path is not None:
+        data = load_annotation_data(annotation_path)
+        video_names, annotations = get_video_names_and_annotations(data, subset)
+        class_to_idx = get_class_labels(data)
+        idx_to_class = {label: name for name, label in class_to_idx.items()}
+    else:
+        # 在测试时使用 video_root_path 中所有视频文件夹名作为 video_names
+        video_names = ["Anger/1"]
+        print("video_names:",video_names)
+        annotations = ["Anger"]  # 占位，后续不会使用
+        class_to_idx = {
+            "Anger": 0,
+            "Anticipation": 1,
+            "Disgust": 2,
+            "Fear": 3,
+            "Joy": 4,
+            "Sadness": 5,
+            "Surprise": 6,
+            "Trust": 7
+        }
+        idx_to_class = {label: name for name, label in class_to_idx.items()}
     dataset = []
     for i in range(len(video_names)):
         if i % 100 == 0:
@@ -220,7 +238,10 @@ def make_dataset(video_root_path, annotation_path, audio_root_path, subset, fps=
         }
         if need_audio: sample['audio'] = audio_path
         assert len(annotations) != 0
-        sample['label'] = class_to_idx[annotations[i]['label']]
+        if isinstance(annotations[i], dict):
+            sample['label'] = class_to_idx[annotations[i]['label']]
+        else:
+            sample['label'] = class_to_idx[annotations[i]]
         ORIGINAL_FPS = 30
         step = ORIGINAL_FPS // fps
         sample['frame_indices'] = list(range(1, n_frames + 1, step))
