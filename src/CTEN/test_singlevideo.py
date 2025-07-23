@@ -176,8 +176,8 @@ if __name__ == "__main__":
     
     extract_video_frames_and_audio(
         video_path=opt.video_path,
-        output_frame_dir=opt.output_frame_dir,
-        output_audio_path=opt.output_audio_dir
+        output_frame_root=opt.output_frame_dir,
+        output_audio_root=opt.output_audio_dir
     )
     
 
