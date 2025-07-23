@@ -147,8 +147,7 @@ bash script/run.sh CTEN test \
 ```
 ⚠️ Note: If random data augmentation was used during training, the predictions may vary slightly each time the script is run. For more information, see the  [`FAQ.md`](./docs/en/FAQ.md).
 
-If your goal is only to obtain the emotion classification results for each video segment in the dataset, execute the script from the command line to generate the classification results.
-
+If your goal is only to obtain the emotion classification results for each video segment in the dataset, you can use the CTEN or VAANet method to perform inference on a single video via the command line.
 
 #### Inference a single video
 ```
