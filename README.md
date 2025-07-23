@@ -177,9 +177,8 @@ bash script/run.sh CTEN test_singlevideo \
 - `checkpoint_path`: Path to the pretrained model weights.
 - `audio_n_segments`: divide the entire audio into 16 segments, extract an embedding for each segment; corresponding frame alignment.
 - `audio_time`: The duration of each audio sample.
-- `output_frame_dir`: Directory where the extracted video frames will be stored. Before inferring single video, the script will automatically extract video frames from the input video
-- `output_audio_dir`: Directory where the extracted audio file (in `.mp3` format) will be saved. Before inferring single video, the script will automatically extract audio from the input video
-- `checkpoint_path`: Path to the pretrained model weights.
+- `output_frame_dir`: Directory where the extracted video frames will be stored. Before inferring single video, the script will automatically extract video frames from the input video.
+- `output_audio_dir`: Directory where the extracted audio file (in `.mp3` format) will be saved. Before inferring single video, the script will automatically extract audio from the input video.
 
 
 ## 🏛 License
