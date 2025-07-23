@@ -156,27 +156,12 @@ bash script/run.sh CTEN test \
 --dataset ve8 \
 --video_path your_path \
 --audio_path your_path \
+--annotation_path src/CTEN/data/ve8_04.json \
 --result_path your_path
 ```
 ⚠️ 注意：如果在训练期间使用了随机数据增强，每次运行脚本时，预测结果可能会略有不同。更多信息请参阅 [`常见问题.md`](./docs/cn/Torch转Jittor常见问题.md)。
 
-如果您的目标仅是获取数据集中每个视频片段的情感分类结果，从命令行执行脚本以生成分类结果。
-
-#### CTEN参数说明
-- `dataset`：是指定使用的数据集名称，可以参考[`数据集.md`](./docs/cn/数据集准备.md)相关说明。
-- `resnet101_pretrained`：预训练图像模型权重路径（如 ResNet-101）；用于视频帧特征提取。
-- `result_path`：推理或训练结果保存路径。
-- `video_path`：视频帧序列或视频文件的路径。
-- `audio_path`：对应的视频音频文件（如.mp3）所在路径。
-- `annotation_path`：标注文件路径，标注文件用于训练还是测试以及对应的情感分类。
-- `batch_size`：批大小：每次送入模型的样本数量。
-- `n_epochs`：总训练轮数。
-- `sample_size`：视频帧图像的输入尺寸（宽高）。
-- `fps`：视频帧率。
-- `snippet_duration`：每个 clip 的持续帧数。
-- `audio_embed_size`： 音频特征维度大小。
-- `audio_n_segments`：将整个音频划分为 16 个段，每段提取一个 embedding；对应帧的对齐。
-- `audio_time`：每段音频采样的时长。
+如果您的目标仅是获取数据集中单个视频片段的情感分类结果，从命令行执行脚本以生成分类结果。
 
 #### 使用单个视频进行情感识别推理
 ```
@@ -186,36 +171,28 @@ test_singlevideo \
 --video_path your_path \
 --output_frame_dir your_path  \
 --output_audio_dir your_path  \
---checkpoint_path your_path \
---annotation_path your_path
+--checkpoint_path your_path 
 ```
-#### 🔧 脚本参数说明
-该脚本中的每个参数都是 **必填项**：
-- **第一个参数：** 指定要使用的方法名称。
-- **第二个参数：** 表示该脚本用于单个视频的推理任务。
-- `video_path`：待分析输入视频的路径。
-在开始推理之前，脚本将会自动从输入视频中提取出 **视频帧序列** 和 **音频**，并分别保存到两个独立的文件夹中：
-- `output_frame_dir`：提取的视频帧将保存在该目录下。
-- `output_audio_dir`：提取的音频文件（格式为 .mp3）将保存在该目录下。
+
+#### CTEN参数说明
+- `dataset`：是指定使用的数据集名称，可以参考[`数据集.md`](./docs/cn/数据集准备.md)相关说明。
+- `resnet101_pretrained`：预训练图像模型权重路径（如 ResNet-101）；用于视频帧特征提取。
+- `result_path`：推理或训练结果保存路径。
+- `video_path`：视频帧序列或视频文件的路径。当推理单个视频时，此参数为输入视频的路径。
+- `audio_path`：对应的视频音频文件（如.mp3）所在路径。
+- `annotation_path`：标注文件路径，标注文件用于训练还是测试以及对应的情感分类。
+- `batch_size`：批大小：每次送入模型的样本数量。
+- `n_epochs`：总训练轮数。
+- `sample_size`：视频帧图像的输入尺寸（宽高）。
+- `fps`：视频帧率。
+- `snippet_duration`：每个 clip 的持续帧数。
+- `audio_embed_size`： 音频特征维度大小。
 - `checkpoint_path`：用于加载预训练模型的权重文件路径
-- `annotation_path`：与视频对应的标注文件路径。
+- `audio_n_segments`：将整个音频划分为 16 个段，每段提取一个 embedding；对应帧的对齐。
+- `audio_time`：每段音频采样的时长。
+- `output_frame_dir`：提取的视频帧将保存在该目录下。在开始推理之前，脚本将会自动从输入视频中提取出 **视频帧序列** 。
+- `output_audio_dir`：提取的音频文件（格式为 .mp3）将保存在该目录下。在开始推理之前，脚本将会自动从输入视频中提取出 **音频**。
 
-  ⚠️ **注意**：运行脚本前请确保所有路径均已正确设置。脚本会自动处理视频帧和音频的提取过程。关于标注文件的格式，请参考以下示例：
-
-```
-{
-  "labels": ["Anger", "Anticipation", "Disgust", "Fear", "Joy", "Sadness", "Surprise", "Trust"],
-  "database": {
-    "1": {
-      "subset": "validation",
-      "annotations": {
-        "label": "Anger"
-      }
-    }
-  }
-}
-
-```
 
 ## 🏛 License
 
