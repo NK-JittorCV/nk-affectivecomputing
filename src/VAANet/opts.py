@@ -1,6 +1,5 @@
 import argparse
 
-
 def parse_opts():
     parser = argparse.ArgumentParser()
     arguments = {
@@ -25,7 +24,7 @@ def parse_opts():
                  type=str,
                  help='Local path of videos', ),
             dict(name="--annotation_path",
-                 default='/home/ubuntu/zzq/CTEN_jittor/data/ve8_04.json',
+                 default=None,
                  type=str,
                  help='Local path of annotation file'),
             dict(name="--result_path",
@@ -38,7 +37,22 @@ def parse_opts():
             dict(name='--audio_path',
                  type=str,
                  default="/mnt/sda/zzc/data/sentiment/VAA_VideoEmotion8/mp3",
-                 help='Local path of audios')
+                 help='Local path of audios'),
+            dict(name='--checkpoint_path',
+                 type=str, 
+                 required=True, 
+                 default="/home/ubuntu/zzq/CTEN_jittor/ve8.pth",
+                 help='Path to the pretrained weight file (.pth)'),
+            dict(name='--output_frame_dir',
+                 type=str, 
+                 required=True, 
+                 default="/home/ubuntu/zzq/CTEN_jittor/ve8.pth",
+                 help='Local path of single video'),
+            dict(name='--output_audio_dir',
+                 type=str, 
+                 required=True, 
+                 default="/home/ubuntu/zzq/CTEN_jittor/ve8.pth",
+                 help='Local path of single audio')
 
         ],
         'core': [
