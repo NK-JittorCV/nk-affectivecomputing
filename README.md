@@ -141,6 +141,7 @@ bash script/run.sh CTEN test \
 --dataset ve8 \
 --video_path your_path \
 --audio_path your_path \
+--annotation_path src/CTEN/data/ve8_04.json \
 --result_path your_path \
 --checkpoint_path your_path
 ```
