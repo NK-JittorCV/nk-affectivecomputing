@@ -25,7 +25,7 @@ def parse_opts():
                  help='Local path of videos', ),
             dict(name="--annotation_path",
                  
-                 default='/home/ubuntu/zzq/CTEN_jittor/data/ve8_04.json',
+                 default=None,
                  type=str,
                  help='Local path of annotation file'),
             dict(name="--result_path",
