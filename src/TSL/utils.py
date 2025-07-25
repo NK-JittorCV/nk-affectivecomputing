@@ -21,15 +21,18 @@ def get_proposal_oic(tList, wtcam, final_score, c_pred, scale, v_len, sampling_f
     t_factor = float(16 * v_len) / (scale * num_segments * sampling_frames)
     temp = []
     for i in range(len(tList)):
+        # i: class_ind  tList: Cx1xTseg
         c_temp = []
         temp_list = np.array(tList[i])[0] # Tseg
         if temp_list.any():
             grouped_temp_list = grouping(temp_list)
             for j in range(len(grouped_temp_list)):
                 inner_score = np.mean(wtcam[grouped_temp_list[j], i, 0])
+
                 len_proposal = len(grouped_temp_list[j])
                 outer_s = max(0, int(grouped_temp_list[j][0] - _lambda * len_proposal))
                 outer_e = min(int(wtcam.shape[0] - 1), int(grouped_temp_list[j][-1] + _lambda * len_proposal))
+
                 outer_temp_list = list(range(outer_s, int(grouped_temp_list[j][0]))) + list(range(int(grouped_temp_list[j][-1] + 1), outer_e + 1))
                 
                 if len(outer_temp_list) == 0:
@@ -87,6 +90,7 @@ def save_best_record(test_info, file_path):
     fo.write("\n")    
     
     fo.close()
+
 
 def minmax_norm(act_map, min_val=None, max_val=None):
     if min_val is None or max_val is None:

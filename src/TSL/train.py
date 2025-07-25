@@ -21,8 +21,10 @@ class Total_loss(nn.Module):
         _label_distribution = _label_distribution + epsilon
         _label_distribution = _label_distribution / _label_distribution.sum()  
         loss_vid_ldl = self.ldl_criterion(jittor.log(vid_distribution), _label_distribution).mean()     
+           
         point_anno = jittor.concat((point_anno, jittor.zeros((point_anno.shape[0], point_anno.shape[1], 1), dtype=point_anno.dtype)), dim=2)
         weighting_seq_act = point_anno.max(dim=2, keepdim=True)
+
         num_actions = point_anno.max(dim=2).sum(dim=1)
 
         focal_weight_act = (1 - cas_sigmoid_fuse) * point_anno + cas_sigmoid_fuse * (1 - point_anno)
@@ -62,6 +64,7 @@ class Total_loss(nn.Module):
         # ce 
         loss_frame_bkg = (((focal_weight_bkg * self.ce_criterion(cas_sigmoid_fuse, point_anno_bkg) * weighting_seq_bkg).sum(dim=2)).sum(dim=1) / num_bkg).mean()
         loss_total =  self.lambdas[0] * loss_vid_ldl + self.lambdas[1] * ((1-self.lambdas[2]) * loss_frame + self.lambdas[2] * (loss_frame_bkg + loss_frame_pact)) + self.lambdas[3] * cpc_loss
+
         loss['loss_recover_cpc'] = cpc_loss
         loss["loss_vid_ldl"] = loss_vid_ldl
         loss["loss_frame"] = loss_frame

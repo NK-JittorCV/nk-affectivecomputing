@@ -1,0 +1,54 @@
+bash script/run.sh TSL main \
+--data_path ./src/TSL/dataset/VideoSenti \
+--model_path ./src/TSL/models/train \
+--output_path ./src/TSL/outputs/train \
+--log_path ./src/TSL/logs/train \
+--modal all \
+--lambdas "[2,1,0.5,1]" \
+--r_act 8 \
+--class_th 0.5 \
+--lr "[0.00001]*2000" \
+--batch_size 16 \
+--num_workers 8 \
+--seed 123 \
+--model_file ./src/TSL/models/train/model_seed_123.pth
+
+
+bash script/run.sh TSL main_eval \
+--data_path ./src/TSL/dataset/VideoSenti \
+--model_path ./src/TSL/models/train \
+--output_path ./src/TSL/outputs/train \
+--log_path ./src/TSL/logs/train \
+--modal all \
+--lambdas "[2,1,0.5,1]" \
+--r_act 8 \
+--class_th 0.5 \
+--lr "[0.00001]*2000" \
+--batch_size 16 \
+--num_workers 8 \
+--seed 123 \
+--model_file ./src/TSL/models/train/model_seed_123.pth
+
+
+bash script/run.sh Gait main \
+--work-dir ./work_dir/temp \
+--model_saved_name model_best \
+--config ./src/Gait/config/EGait_journal/train_diff_combine_double_score_fagg.yaml \
+--phase train \
+--seed 1 \
+--log-interval 100 \
+--save-interval 2 \
+--eval-interval 5 \
+--print-log True \
+--num-worker 20 \
+--train_ratio 0.9 \
+--test_ratio 0.1 \
+--base-lr 0.01 \
+--step 20 40 60 \
+--device 0 \
+--optimizer SGD \
+--batch_size 16 \
+--start-epoch 0 \
+--num-epoch 80 \
+--weight_decay 0.0005
+
