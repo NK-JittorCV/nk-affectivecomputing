@@ -106,6 +106,7 @@ Before further exploration, it is recommended to read our documentation in advan
 |   [🔥Supported Methods](./docs/en/papers.md)   |
 |   [Train](./docs/en/train.md)   |
 |   [Test](./docs/en/test.md) |
+|   [Deploy](./docs/en/deploy.md) |
 |   [Datasets](./docs/en/dataset.md)   |
 |   [Torch2Jittor FAQ](./docs/en/FAQ.md)   |
 
