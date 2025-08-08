@@ -86,12 +86,12 @@ Here is a minimal example of training and deployment using JACK.
 
 Training
 ```
-bash script/run.sh TSL main
+bash script/run.sh CTEN main
 ```
 
 Testing
 ```
-bash script/run.sh TSL test
+bash script/run.sh CTEN test
 ```
 
 - If you want to use other affective computing methods, you only need to modify the first argument to specify the corresponding model's name, and modify the second argument to specify the corresponding function such as train or test.
