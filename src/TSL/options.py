@@ -6,20 +6,23 @@ def parse_args():
     descript = 'TSL-Net'
     parser = argparse.ArgumentParser(description=descript)
 
-    parser.add_argument('--data_path', type=str, default='./src/TSL/dataset/VideoSenti')
-    parser.add_argument('--model_path', type=str, default='./src/TSL/models/train')
-    parser.add_argument('--output_path', type=str, default='./src/TSL/outputs/train')
-    parser.add_argument('--log_path', type=str, default='./src/TSL/logs/train')
+    parser.add_argument('--data_path', type=str, default='./dataset/VideoSenti')
+    parser.add_argument('--model_path', type=str, default='./models/train')
+    parser.add_argument('--output_path', type=str, default='./outputs/train')
+    parser.add_argument('--log_path', type=str, default='./logs/train')
     parser.add_argument('--modal', type=str, default='all', choices=['rgb', 'logmfcc', 'all'])
     parser.add_argument('--lambdas', type=str, default='[2,1,0.5,1]')
     parser.add_argument('--r_act', type=int, default=8)
     parser.add_argument('--class_th', type=float, default=0.5)
     parser.add_argument('--lr', type=str, default='[0.00001]*2000', help='learning rates for steps (list form)')
     parser.add_argument('--batch_size', type=int, default=16)
-    parser.add_argument('--num_workers', type=int, default=8)
+    parser.add_argument('--num_workers', type=int, default=20)
     parser.add_argument('--seed', type=int, default=123, help='random seed (-1 for no manual seed)')
-    parser.add_argument('--model_file', type=str, default=None, help='the path of pre-trained model file')
+    parser.add_argument('--model_file', type=str, default="/home/ubuntu/TSL_jittor/models/train/model_best.pth", help='the path of pre-trained model file')
     parser.add_argument('--debug', action='store_true')
+
+    parser.add_argument('--rgb_path', type=str, default=None)
+    parser.add_argument('--mfcc_path', type=str, default=None)
 
     return init_args(parser.parse_args())
 
