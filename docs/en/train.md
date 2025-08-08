@@ -42,7 +42,7 @@ The first two parameters are mandatory: CTEN specifies the method, and main indi
 ## VAANet
 
 ```
-bash script/run.sh VAANet test \
+bash script/run.sh VAANet main \
 --dataset ve8 \
 --resnet101_pretrained your_path \
 --video_path your_path \
