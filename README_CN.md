@@ -22,20 +22,13 @@
 </p>
 
 ## 📖 目录
-- [基于国产深度框架Jittor计图的训练与部署解决方案](#基于国产深度框架jittor计图的训练与部署解决方案)
-  - [📖 目录](#-目录)
-  - [📝 简介](#-简介)
-  - [🎉 新闻](#-新闻)
-  - [🛠️ 安装](#️-安装)
-  - [✨ 使用](#-使用)
-    - [✨ 深入使用JACK并定制化参数](#-深入使用jack并定制化参数)
-      - [训练](#训练)
-      - [测试](#测试)
-      - [CTEN参数说明](#cten参数说明)
-  - [🏛 License](#-license)
-  - [📎 引用](#-引用)
+- [📝 简介](#-简介)
+- [🎉 新闻](#-新闻)
+- [🛠️ 安装](#️-安装)
+- [✨ 使用](#-使用)
+- [🏛 License](#-license)
+- [📎 引用](#-引用)
 
-  
 
 
 
@@ -126,7 +119,7 @@ bash script/run.sh CTEN test
 
 以 [CTEN](https://openaccess.thecvf.com/content/CVPR2023/papers/Zhang_Weakly_Supervised_Video_Emotion_Detection_and_Prediction_via_Cross-Modal_Temporal_CVPR_2023_paper.pdf) 为例，JACK 提供了从训练到部署的完整解决方案。
 
----
+
 
 #### 训练
 ```
@@ -147,9 +140,8 @@ bash script/run.sh CTEN main \
 --audio_time 100
 ```
 
-在运行脚本之前，请确保将视频路径、音频路径、预训练模型路径以及结果输出路径中的占位符替换为实际的本地路径。配置完成后，您可以在 VE8 数据集上训练模型以获取最终的训练权重文件。有关每个参数的详细说明，请参考 [`Train`](./docs/en/train.md) 文档。
+在运行脚本之前，请确保将视频路径、音频路径、预训练模型路径以及结果输出路径中的占位符替换为实际的本地路径。配置完成后，您可以在 VE8 数据集上训练模型以获取最终的训练权重文件。有关每个参数的详细说明，请参考 [`Train`](./docs/en/train.md) 文档。在训练或评估过程中，验证结果将与情感分类输出一同显示。
 
----
 
 #### 测试
 ```
@@ -159,6 +151,7 @@ bash script/run.sh CTEN test \
 --audio_path your_path \
 --annotation_path src/CTEN/data/ve8_04.json \
 --result_path your_path
+--checkpoint_path your_path
 ```
 ⚠️ 注意：如果在训练期间使用了随机数据增强，每次运行脚本时，预测结果可能会略有不同。更多信息请参阅 [`常见问题.md`](./docs/cn/Torch转Jittor常见问题.md)。
 
@@ -166,9 +159,7 @@ bash script/run.sh CTEN test \
 
 #### 使用单个视频进行情感识别推理
 ```
-bash script/run.sh
-CTEN \
-test_singlevideo \
+bash script/run.sh CTEN test_singlevideo \
 --video_path your_path \
 --output_frame_dir your_path  \
 --output_audio_dir your_path  \
